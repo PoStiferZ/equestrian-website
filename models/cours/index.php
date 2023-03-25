@@ -35,7 +35,6 @@ require('config.php'); ?>
 
 
     <div class="app-content content">
-        <div class="content-overlay"></div>
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
@@ -103,6 +102,11 @@ require('config.php'); ?>
                                                                             <!-- errors will go here -->
                                                                         </div>
 
+                                                                        <div id="edit-title-group" class="form-group">
+                                                                            <input type="text" class="form-control" id="editID_Recurrence" name="editID_Recurrence" hidden>
+                                                                            <!-- errors will go here -->
+                                                                        </div>
+
                                                                         <div id="startdate-group" class="form-group">
                                                                             <label class="control-label" for="startDate">Date début</label>
                                                                             <input type="text" class="form-control datetimepicker" id="startDate" name="startDate" autocomplete="off">
@@ -122,7 +126,7 @@ require('config.php'); ?>
                                                                             <input type="text" class="form-control colorpicker" name="color" value="#6453e9">
                                                                             <!-- errors will go here -->
                                                                         </div>
-                                                                        <div id="textcolor-group" class="form-group">
+                                                                        <div hidden id="textcolor-group" class="form-group">
                                                                             <label class="control-label" for="textcolor">Couleur du texte</label>
                                                                             <input type="text" class="form-control colorpicker" name="text_color" value="#ffffff">
                                                                             <!-- errors will go here -->
@@ -130,7 +134,7 @@ require('config.php'); ?>
                                                                         <div id="textcolor-group" class="form-group">
                                                                             <label class="control-label" for="textcolor">Récurrence en mois</label>
                                                                             <select name="selectedRecurrence" class="form-control">
-                                                                                <option value="0">0</option>
+                                                                                <option value="0">Aucune</option>
                                                                                 <option value="1">1</option>
                                                                                 <option value="2">2</option>
                                                                                 <option value="3">3</option>
@@ -154,14 +158,11 @@ require('config.php'); ?>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                                                         <button type="submit" class="btn btn-primary">Sauvegarder</button>
                                                     </div>
-
                                                     </form>
 
                                                 </div><!-- /.modal-content -->
                                             </div><!-- /.modal-dialog -->
                                         </div><!-- /.modal -->
-
-
                                         <div class="modal fade text-left" id="editeventmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -169,23 +170,21 @@ require('config.php'); ?>
                                                         <div class="row">
                                                             <div class="col-12">
                                                                 <div class="card">
-
-
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <button type="text" id="projectinput3" class=" form-control  btn-outline-primary" placeholder="Rue" name="rue">Modifier le cours</button>
+                                                                                <button type="text" data-toggle="modal" data-target="#editeventmodal2" class=" form-control  btn-outline-primary">Modifier le cours</button>
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <button type="text" id="projectinput3" class=" form-control  btn-outline-danger" placeholder="Rue" name="rue">Supprimer le cours</button>
+                                                                                <button type="text" id="deleteEvent" class=" form-control  btn-outline-danger" data-id>Supprimer le cours</button>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <button type="text" id="projectinput3" class=" form-control  btn-outline-success" placeholder="Rue" name="rue">Modifier la récurrence</button>
+                                                                                <button type="text" data-toggle="modal" data-target="#editeventmodalRec" class=" form-control  btn-outline-success">Modifier la récurrence</button>
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <button type="text" id="projectinput3" class=" form-control  btn-outline-danger" placeholder="Rue" name="rue">Supprimer la récurrence</button>
+                                                                                <button type="text" class=" form-control  btn-outline-danger" id="deleteEventRec" data-idR>Supprimer la récurrence</button>
                                                                             </div>
                                                                         </div>
 
@@ -199,6 +198,135 @@ require('config.php'); ?>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="modal fade" id="editeventmodal2" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Modifier le cours</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container-fluid">
+                                                            <form id="editEventForm" class="form-horizontal">
+                                                                <input type="hidden" id="editEventId" name="editEventId" value="">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div id="edit-title-group" class="form-group">
+                                                                            <label class="control-label" for="editEventTitle">Nom du cours</label>
+                                                                            <input type="text" class="form-control" id="editEventTitle" name="editEventTitle">
+                                                                            <!-- errors will go here -->
+                                                                        </div>
+                                                                        <!--                                                                         <div id="edit-idRec-group" class="form-group">
+                                                                            <label class="control-label" for="editIdRecurrence">ID Récurrence</label>
+                                                                            <input type="text" class="form-control" id="editIdRecurrence" name="editIdRecurrence">
+                                                                        </div> -->
+
+                                                                        <div id="edit-startdate-group" class="form-group">
+                                                                            <label class="control-label" for="editStartDate">Date début</label>
+                                                                            <input type="text" class="form-control datetimepicker" id="editStartDate" name="editStartDate">
+                                                                            <!-- errors will go here -->
+                                                                        </div>
+
+
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <div id="edit-color-group" class="form-group">
+                                                                            <label class="control-label" for="editColor">Couleur</label>
+                                                                            <input type="text" class="form-control colorpicker" id="editColor" name="editColor" value="#6453e9">
+                                                                            <!-- errors will go here -->
+                                                                        </div>
+                                                                        <div id="edit-enddate-group" class="form-group">
+                                                                            <label class="control-label" for="editEndDate">Date fin</label>
+                                                                            <input type="text" class="form-control datetimepicker" id="editEndDate" name="editEndDate">
+                                                                        </div>
+
+                                                                        <!-- <div id="edit-textcolor-group" class="form-group">
+                                                                            <label class="control-label" for="editTextColor">Couleur du texte</label>
+                                                                            <input type="text" class="form-control colorpicker" id="editTextColor" name="editTextColor" value="#ffffff">
+                                                                        </div> -->
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <button type="submit" class="btn btn-warning">Enregistrer</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal fade" id="editeventmodalRec" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Modifier la récurrence du cours</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container-fluid">
+                                                            <form id="editEventFormRec" class="form-horizontal">
+                                                                <input type="hidden" id="editEventId" name="editEventId" value="">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div id="edit-title-group" class="form-group">
+                                                                            <label class="control-label" for="editEventTitle">Nom du cours</label>
+                                                                            <input type="text" class="form-control" id="editEventTitleRec" name="editEventTitleRec">
+                                                                            <!-- errors will go here -->
+                                                                        </div>
+                                                                        <div id="edit-idRec-group" class="form-group">
+                                                                            <!-- <label class="control-label" for="editIdRecurrence">ID Récurrence</label> -->
+                                                                            <input type="text" class="form-control" id="editIdRecurrenceRec" name="editIdRecurrenceRec">
+                                                                        </div>
+                                                                        <div id="edit-startdate-group" class="form-group">
+                                                                            <label class="control-label" for="editStartDate">Date début</label>
+                                                                            <input type="text" class="form-control datetimepicker" id="editStartDateRec" name="editStartDateRec">
+                                                                            <!-- errors will go here -->
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <div id="edit-color-group" class="form-group">
+                                                                            <label class="control-label" for="editColor">Couleur</label>
+                                                                            <input type="text" class="form-control colorpicker" id="editColorRec" name="editColorRec" value="#6453e9">
+                                                                            <!-- errors will go here -->
+                                                                        </div>
+                                                                        <div id="edit-enddate-group" class="form-group">
+                                                                            <label class="control-label" for="editEndDate">Date fin</label>
+                                                                            <input type="text" class="form-control datetimepicker" id="editEndDateRec" name="editEndDateRec">
+                                                                        </div>
+
+                                                                        <!-- <div id="edit-textcolor-group" class="form-group">
+                                                                            <label class="control-label" for="editTextColor">Couleur du texte</label>
+                                                                            <input type="text" class="form-control colorpicker" id="editTextColor" name="editTextColor" value="#ffffff">
+                                                                        </div> -->
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <button type="submit" class="btn btn-warning">Enregistrer</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
                                         <div class="container">
 
@@ -218,7 +346,7 @@ require('config.php'); ?>
             </div>
         </div>
     </div>
-
-    <?php
-    require("../template/footer.php");
-    ?>
+</body>
+<?php
+require("../template/footer.php");
+?>

@@ -59,7 +59,6 @@ if ($title != 'cours') {
                                                     <th>Téléphone</th>
                                                     <th>Galop</th>
                                                     <th>Licence</th>
-
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -90,6 +89,7 @@ if ($title != 'cours') {
                                                         </td>
                                                         <td><?= $value['niveauGalop'] ?></td>
                                                         <td><?= $value['numeroLicence'] ?></td>
+
                                                         <td>
                                                             <?php if ($value['ID_Responsable'] <> NULL) { ?>
                                                                 <?php $respValue = $oCavalier->findResp($value['ID_Responsable']);
@@ -183,11 +183,10 @@ if ($title != 'cours') {
                                                             ?>
                                                         </td>
                                                         <td>
-                                                            <a href="index.php?id=<?= $value['ID_Personne'] ?>"><i class="la la-pencil"></i></a>
+                                                            <a href="update.php?id=<?= $value['ID_Personne'] ?>"><i class="la la-pencil"></i></a>
                                                         </td>
                                                         <td>
                                                             <a href="index.php?DeleteById=<?= $value['ID_Personne'] ?>"><i class="la la-close"></i></a>
-
                                                         </td>
                                                     <?php
                                                 }

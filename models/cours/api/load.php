@@ -10,7 +10,8 @@ foreach ($result as $row) {
         'start'           => $row->start_event,
         'end'             => $row->end_event,
         'backgroundColor' => $row->color,
-        'textColor'       => $row->text_color
+        'textColor'       => $row->text_color,
+        'idRec'           => $row->ID_Recurrence,
     ];
 }
 

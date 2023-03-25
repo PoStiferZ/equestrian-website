@@ -1,5 +1,3 @@
-<?php session_start();
-?>
 <!DOCTYPE html>
 
 <!-- 
@@ -112,8 +110,7 @@ Author: Kenzo Fahem
                 <li class=" navigation-header"><span data-i18n="Admin Panels">Panneau d'administration
                     </span><i class="la la-ellipsis-h" data-toggle="tooltip" data-placement="right" data-original-title="Admin Panels"></i>
                 </li>
-                <li class=" nav-item"><a href="../../index.php"><i class="la la-home"></i><span class="menu-title" data-i18n="Dashboard">Tableau de board</span></a>
-                </li>
+
                 <li class=" nav-item"><a href="../cavalier/index.php"><i class="la la-user"></i><span class="menu-title" data-i18n="eCommerce">Cavalier</span></a>
                 </li>
                 <li class=" nav-item"><a href="../cours/index.php"><i class="la la-calendar"></i><span class="menu-title" data-i18n="Hospital">Cours</span></a>

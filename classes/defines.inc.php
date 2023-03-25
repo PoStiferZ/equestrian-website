@@ -19,7 +19,6 @@ require("pension.class.php");
 require("tarif.class.php");
 require("inscription.class.php");
 require("responsable.class.php");
-require("users.class.php");
 require("typepension.class.php");
 
 
@@ -31,6 +30,5 @@ $oPension = new Pension(0, 0, 0, "", "");
 $oTarif = new Tarif("", 0);
 $oInscription = new Inscription("", 0, 0, 0);
 $oResponsable = new Responsable("", "", "", "", "", "", "", "", "");
-$oUsers = new Users("", "", 0, 0);
 $oResponsable = new Responsable("", "", "", "", "", "", "", "", "");
 $oTypePension = new TypePension("");
