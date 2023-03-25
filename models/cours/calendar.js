@@ -101,6 +101,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     $('#editeventmodal').modal();
                 }
             });
+            $('body').on('click', '#deleteEventRec', function () {
+                $.ajax({
+                    url: url + "api/deleteR.php",
+                    type: "POST",
+                    data: {
+                        id: arg.event.id,
+                        ID_Recurrence: $('#editIdRecurrenceRec').val()
+                    },
+                    cache: false,
+                    async: true
+                });
+                calendar.refetchEvents();
+                //close model
+                $('#editeventmodal').modal('hide');
+                //refresh calendar
+            });
 
             $('body').on('click', '#deleteEvent', function () {
                 $.ajax({
@@ -110,31 +126,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     cache: false,
                     async: true
                 });
+                calendar.refetchEvents();
                 //close model
                 $('#editeventmodal').modal('hide');
                 //refresh calendar
-                calendar.refetchEvents();
-            });
-
-
-            $('body').on('click', '#deleteEventRec', function () {
-                $.ajax({
-                    url: url + "api/deleteR.php",
-                    type: "POST",
-                    data: {
-                        id: arg.event.id,
-                        ID_Recurrence: $('#editID_Recurrence').val()
-                    },
-                    cache: false,
-                    async: true
-                });
-
-                //close model
-                $('#editeventmodal').modal('hide');
-                //refresh calendar
-                calendar.refetchEvents();
 
             });
+
+
+
 
             calendar.refetchEvents();
         }
