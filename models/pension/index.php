@@ -71,8 +71,9 @@ if ($title != 'cours') {
                                                                                     foreach ($findPens as $idPens) {
                                                                                         $findID0 = $oPension->findByIdSigne($idPens['ID_Personne']);
                                                                                         foreach ($findID0 as $value0) {
-                                                                                            echo $value0['nom'] . " " . $value0['prenom'];
+                                                                                            $name = $value0['nom'] . " " . $value0['prenom'];
                                                                                         }
+                                                                                        echo $name;
                                                                                     }
                                                                                     ?></p>
                                                         </td>
