@@ -51,10 +51,10 @@ class Responsable extends Personne
      * @param string $galop
      * @param string $licence
      */
-    public function __construct(string $n, string $p, string $dna, string $m, string $t, string $ca, string $r, string $cp, string $v)
+    public function __construct(string $n, string $p, string $dna, string $m, string $t, string $mdp, string $ca, string $r, string $cp, string $v)
     {
         // On transfère les informations nécessaires au constructeur de Cavalier
-        parent::__construct($n, $p, $dna, $m, $t);
+        parent::__construct($n, $p, $dna, $m, $t, $mdp);
         $this->rue = $r;
         $this->complementAdresse = $ca;
         $this->codePostal = $cp;

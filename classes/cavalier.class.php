@@ -37,15 +37,16 @@ class Cavalier extends Personne
      * @param string $dna
      * @param string $mail
      * @param integer $tel
+     * @param string $mdp
      * @param boolean $actif
      * @param integer $photo
      * @param string $galop
      * @param string $licence
      */
-    public function __construct(string $n, string $p, string $dna, string $m, string $t, bool $a = true, string $ph, int $g, string $l)
+    public function __construct(string $n, string $p, string $dna, string $m, string $t, string $mdp, bool $a = true, string $ph, int $g, string $l)
     {
         // On transfère les informations nécessaires au constructeur de Cavalier
-        parent::__construct($n, $p, $dna, $m, $t, $a);
+        parent::__construct($n, $p, $dna, $m, $t, $mdp, $a);
         $this->photo = $ph;
         $this->niveauGalop = $g;
         $this->numeroLicence = $l;
@@ -127,9 +128,16 @@ class Cavalier extends Personne
     const errmessage = "Une erreur s'est produite, signalez la à l'administrateur \n";
 
 
+
     public function create($nom, $prenom, $dna, $mail, $telephone, $file, $galop, $licence, $lastID)
     {
         global $db;
+
+        function password_generate($chars)
+        {
+            $data = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
+            return substr(str_shuffle($data), 0, $chars);
+        }
 
         // Traitement des images 
         $dir_name = "../../assets/uploadimg/";
@@ -158,7 +166,7 @@ class Cavalier extends Personne
         }
 
 
-        $request = "INSERT INTO personne (nom, prenom, dateNaissance, mail, telephone, photo, niveauGalop, numeroLicence, ID_Responsable, actif) VALUES(:nom, :prenom, :dateNaissance, :mail, :telephone, :photo, :niveauGalop, :numeroLicence, :idResp, 1)";
+        $request = "INSERT INTO personne (nom, prenom, dateNaissance, mail, telephone, photo, niveauGalop, numeroLicence, ID_Responsable, actif, mdp) VALUES(:nom, :prenom, :dateNaissance, :mail, :telephone, :photo, :niveauGalop, :numeroLicence, :idResp, 1, :mdp)";
         $sql = $db->prepare($request);
         $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
         $sql->bindValue(':prenom', $prenom, PDO::PARAM_STR);
@@ -167,6 +175,13 @@ class Cavalier extends Personne
         $sql->bindValue(':photo', $file, PDO::PARAM_STR);
         $sql->bindValue(':telephone', $telephone, PDO::PARAM_STR);
         $sql->bindValue(':niveauGalop', $galop, PDO::PARAM_INT);
+        $sql->bindValue(
+            ':mdp',
+            password_generate(12),
+            PDO::PARAM_STR
+        );
+
+
         $sql->bindValue(':numeroLicence', $licence, PDO::PARAM_STR);
         if ($lastID == 0) {
             $sql->bindValue(':idResp', NULL, PDO::PARAM_INT);

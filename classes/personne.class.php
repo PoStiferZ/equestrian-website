@@ -46,6 +46,13 @@ class Personne
     private $telephone;
 
     /**
+     * Mot de passe 
+     *
+     *  @var String
+     */
+    private $mdp;
+
+    /**
      * status de la personne
      *
      * @var bool 
@@ -62,15 +69,17 @@ class Personne
      * @param string $dna
      * @param string $mail
      * @param int $tel
+     * @param string $mdp
      * @param bool $actif
      */
-    public function __construct(string $n, string $p, string $dna, string $m, string $t, bool $a = true)
+    public function __construct(string $n, string $p, string $dna, string $m, string $t, string $mdp, bool $a = true)
     {
         $this->nom = $n;
         $this->prenom = $p;
         $this->dateNaissance = $dna;
         $this->mail = $m;
         $this->telephone = $t;
+        $this->mdp = $mdp;
         $this->actif = $a;
     }
 
@@ -227,6 +236,30 @@ class Personne
     public function setActif(bool $actif): self
     {
         $this->actif = $actif;
+        return $this;
+    }
+
+    /**
+     * Get mot de passe
+     *
+     * @return  String
+     */
+    public function getMdp()
+    {
+        return $this->mdp;
+    }
+
+    /**
+     * Set mot de passe
+     *
+     * @param  String  $mdp  Mot de passe
+     *
+     * @return  self
+     */
+    public function setMdp(String $mdp)
+    {
+        $this->mdp = $mdp;
+
         return $this;
     }
 }

@@ -208,5 +208,6 @@ if ($title != 'cours') {
 <!-- END: Content-->
 
 <?php
+
 require("../template/footer.php");
 ?>

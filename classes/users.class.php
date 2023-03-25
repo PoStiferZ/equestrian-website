@@ -9,7 +9,6 @@ class Users
     private $idPersonne;
     private $errmessage;
 
-
     public function __construct($email, $mdp, $role, $idPersonne)
     {
         $this->email = $email;
@@ -17,7 +16,6 @@ class Users
         $this->role = $role;
         $this->idPersonne = $idPersonne;
     }
-
 
     /**
      * Get the value of email
@@ -157,43 +155,4 @@ class Users
         $sql->execute();
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
-
-    /*         public function updateById($idInscription, $an, $cffe, $cc, $idPersonne)
-        {
-            global $db;
-            $request = "UPDATE inscription SET annee = :an, CotisationFFE = :cffe, CotisationCentre = :cc, ID_Personne = :idPersonne WHERE ID_Inscription = :idInscription";
-            $sql = $db->prepare($request);
-            $sql->bindValue(':idInscription', $idInscription, PDO::PARAM_INT);
-            $sql->bindValue(':an', $an, PDO::PARAM_STR);
-            $sql->bindValue(':cffe', $cffe, PDO::PARAM_INT);
-            $sql->bindValue(':cc', $cc, PDO::PARAM_INT);
-            $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
-            try {
-                return $sql->execute();
-            } catch (PDOException $e) {
-                return $this->errmessage . $e->getMessage();
-            }
-        }
-    
-        public function deleteById($idInscription)
-        {
-            global $db;
-            $request = "UPDATE inscription SET actif = 0 WHERE ID_Inscription = :idInscription";
-            $sql = $db->prepare($request);
-            $sql->bindValue(':idInscription', $idInscription, PDO::PARAM_INT);
-            try {
-                return $sql->execute();
-            } catch (PDOException $e) {
-                return $this->errmessage . $e->getMessage();
-            }
-        }
-    
-        public function optionPersonne()
-        {
-            global $db;
-            $request = "SELECT ID_Personne, nom, prenom FROM personne WHERE actif = 1";
-            $sql = $db->prepare($request);
-            $sql->execute();
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
-        } */
 }

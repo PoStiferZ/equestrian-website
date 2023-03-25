@@ -23,12 +23,11 @@ require("typepension.class.php");
 
 
 
-$oCavalier = new Cavalier("", "", "", "", "", "", "", 0, "");
+$oCavalier = new Cavalier("", "", "", "", "", "", "", "", 0, "",);
 $oCheval = new Cheval("", "", 0, 0);
 $oRobe = new Robe(0, "");
 $oPension = new Pension(0, 0, 0, "", "");
 $oTarif = new Tarif("", 0);
 $oInscription = new Inscription("", 0, 0, 0);
-$oResponsable = new Responsable("", "", "", "", "", "", "", "", "");
-$oResponsable = new Responsable("", "", "", "", "", "", "", "", "");
+$oResponsable = new Responsable("", "", "", "", "", "", "", "", "", "");
 $oTypePension = new TypePension("");
