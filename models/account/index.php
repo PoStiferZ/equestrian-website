@@ -103,86 +103,119 @@ session_start();
                                 <div class="card-content">
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
-                                                <div class="media">
-                                                    <a href="javascript: void(0);">
-                                                        <img src="../../app-assets/images/portrait/small/avatar-s-18.png" class="rounded mr-75" alt="profile image" height="64" width="64">
-                                                    </a>
-                                                    <div class="media-body mt-75">
-                                                        <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
-                                                            <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer" for="account-upload">Modifier la photo</label>
-                                                            <input type="file" id="account-upload" hidden>
-                                                        </div>
+                                            <form action="traitement.php" method="POST">
+                                                <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
+                                                    <div class="media">
+                                                        <a href="javascript: void(0);">
+                                                            <img src="../../assets/uploadimg/<?= $_SESSION['photo'] ?>" class="rounded mr-75" alt="profile image" height="64" width="64">
+                                                        </a>
+                                                        <div class="media-body mt-75">
+                                                            <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
+                                                                <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer" for="account-upload">Modifier la photo</label>
+                                                                <input type="file" id="account-upload" hidden name="photo">
+                                                            </div>
 
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <hr>
-                                                <form novalidate>
+                                                    <hr>
                                                     <div class="row">
-                                                        <div class="col-12">
+                                                        <div class="col-6">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-username">Nom</label>
-                                                                    <input type="text" class="form-control" placeholder="Nom" value="<?= $_SESSION['nom'] ?>" required>
+                                                                    <input type="text" class="form-control" placeholder="Nom" value="<?= $_SESSION['id'] ?>" name="id" hidden required>
+                                                                </div>
+                                                                <div class="controls">
+                                                                    <label for="account-first-name">Nom</label>
+                                                                    <input type="text" class="form-control" placeholder="Nom" value="<?= $_SESSION['nom'] ?>" name="nom" required>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12">
+                                                        <div class="col-6">
                                                             <div class="form-group">
                                                                 <div class="controls">
                                                                     <label for="account-name">Prénom</label>
-                                                                    <input type="text" class="form-control" placeholder="Prenom" value="<?= $_SESSION['prenom'] ?>" required>
+                                                                    <input type="text" class="form-control" placeholder="Prenom" value="<?= $_SESSION['prenom'] ?>" name="prenom" required>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-e-mail">Mail</label>
-                                                                    <input type="email" class="form-control" placeholder="Mail" value="<?= $_SESSION['mail'] ?>" required>
+                                                                    <label for="account-birth">Date de naissance</label>
+                                                                    <input type="date" class="form-control" placeholder="Date de naissance" value="<?= $_SESSION['naissance'] ?>" name="naissance" required>
                                                                 </div>
                                                             </div>
                                                         </div>
 
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-e-mail">Mail</label>
+                                                                    <input type="email" class="form-control" placeholder="Mail" value="<?= $_SESSION['mail'] ?>" name="mail" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-phone">Téléphone</label>
+                                                                    <input type="text" class="form-control" placeholder="Téléphone" value="<?= $_SESSION['telephone'] ?>" name="telephone" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-licence">Licence</label>
+                                                                    <input type="text" class="form-control" placeholder="Licence" value="<?= $_SESSION['licence'] ?>" name="licence" disabled>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-galop">Galop</label>
+                                                                    <input type="text" class="form-control" placeholder="Galop" value="<?= $_SESSION['galop'] ?>" name="galop" disabled>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Sauvegarder</button>
+                                                            <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0" name="update">Sauvegarder</button>
                                                         </div>
                                                     </div>
-                                                </form>
-                                            </div>
+                                                </div>
+                                            </form>
                                             <div class="tab-pane fade " id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
                                                 <form novalidate>
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-old-password">Old Password</label>
-                                                                    <input type="password" class="form-control" id="account-old-password" required placeholder="Old Password" data-validation-required-message="This old password field is required">
+                                                                    <label for="account-old-password">Ancien mot de passe</label>
+                                                                    <input type="password" class="form-control" id="account-old-password" required placeholder="Ancien mot de passe" data-validation-required-message="This old password field is required">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-new-password">New Password</label>
-                                                                    <input type="password" name="password" id="account-new-password" class="form-control" placeholder="New Password" required data-validation-required-message="The password field is required" minlength="6">
+                                                                    <label for="account-new-password">Nouveau mot de passe</label>
+                                                                    <input type="password" name="password" id="account-new-password" class="form-control" placeholder="Nouveau mot de passe" required data-validation-required-message="The password field is required" minlength="6">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-retype-new-password">Retype New
-                                                                        Password</label>
-                                                                    <input type="password" name="con-password" class="form-control" required id="account-retype-new-password" data-validation-match-match="password" placeholder="New Password" data-validation-required-message="The Confirm password field is required" minlength="6">
+                                                                    <label for="account-retype-new-password">Confirmer le nouveau mot de passe</label>
+                                                                    <input type="password" name="con-password" class="form-control" required id="account-retype-new-password" data-validation-match-match="password" placeholder="Nouveau mot de passe" data-validation-required-message="The Confirm password field is required" minlength="6">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
-                                                                changes</button>
-                                                            <button type="reset" class="btn btn-light">Cancel</button>
+                                                            <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Sauvegarder</button>
                                                         </div>
                                                     </div>
                                                 </form>

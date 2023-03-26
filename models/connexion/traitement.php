@@ -9,25 +9,36 @@ if (isset($_POST['close'])) {
     $email = $_SESSION['email'];
 
 
-    // Get all users
-    $dataUser = $oCavalier->findAll();
 
-    if ($dataUser[0]['mail'] == $email && $dataUser[0]['mdp'] == $password) {
-        session_start();
-        $_SESSION['nom'] = $dataUser[0]['nom'];
-        $_SESSION['prenom'] = $dataUser[0]['prenom'];
-        $_SESSION['mail'] = $dataUser[0]['mail'];
-        header("Location: ../account/index.php");
-    } else {
-        header("Location: index.php");
+    // Get all users
+    $dataUsers = $oCavalier->findAll();
+
+    foreach ($dataUsers as $dataUser) {
+        if ($dataUser['mail'] == $email && $dataUser['mdp'] == $password) {
+            // Start session
+            session_start();
+            $_SESSION['id'] = $dataUser['ID_Personne'];
+
+            $_SESSION['nom'] = $dataUser['nom'];
+            $_SESSION['prenom'] = $dataUser['prenom'];
+            $_SESSION['naissance'] = $dataUser['dateNaissance'];
+
+            $_SESSION['mail'] = $dataUser['mail'];
+            $_SESSION['telephone'] = $dataUser['telephone'];
+
+            $_SESSION['photo'] = $dataUser['photo'];
+
+            // If user is a rider
+            if ($dataUser['numeroLicence'] != null && $dataUser['niveauGalop'] != null) {
+                $_SESSION['licence'] = $dataUser['numeroLicence'];
+                $_SESSION['galop'] = $dataUser['niveauGalop'];
+            }
+
+            header("Location: ../account/index.php");
+        } else {
+            header("Location: index.php");
+        }
     }
 } else {
-    header("Location: index.php");
-}
-
-if (isset($_POST['logout'])) {
-    session_start();
-    session_unset();
-    session_destroy();
     header("Location: index.php");
 }
