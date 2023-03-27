@@ -27,8 +27,7 @@ if (isset($_POST['close'])) {
 
     if (isset($_POST['Update'])) {
         $cavUpdate = $oCavalier->updateById($_POST['ID_Personne'], $_POST['nom'], $_POST['prenom'], $_POST['dna'], $_POST['mail'], $_POST['telephone'], $_FILES['photo'], $_POST['nvGalop'], $_POST['licence']);
-        /*  $pensionUpdate = $oPension->updateById($_POST['idPens'], $_POST['idTP'], $_POST['idTar'], $_POST['idChev'], $_POST['dD'], $_POST['dF']);
-    $pensionUpdate2 = $oPension->updateSigne($_POST['idPers'], $_POST['idPens']); */
+
         header("Location: index.php");
     }
 

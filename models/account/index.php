@@ -103,7 +103,7 @@ session_start();
                                 <div class="card-content">
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <form action="traitement.php" method="POST">
+                                            <form action="traitement.php" method="POST" enctype="multipart/form-data">
                                                 <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
                                                     <div class="media">
                                                         <a href="javascript: void(0);">
@@ -111,8 +111,7 @@ session_start();
                                                         </a>
                                                         <div class="media-body mt-75">
                                                             <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
-                                                                <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer" for="account-upload">Modifier la photo</label>
-                                                                <input type="file" id="account-upload" hidden name="photo">
+                                                                <input type="file" name="photo">
                                                             </div>
 
                                                         </div>
@@ -168,7 +167,7 @@ session_start();
                                                             <div class="form-group">
                                                                 <div class="controls">
                                                                     <label for="account-licence">Licence</label>
-                                                                    <input type="text" class="form-control" placeholder="Licence" value="<?= $_SESSION['licence'] ?>" name="licence" disabled>
+                                                                    <input type="text" class="form-control" placeholder="Licence" value="<?= $_SESSION['licence'] ?>" name="licence">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -176,7 +175,7 @@ session_start();
                                                             <div class="form-group">
                                                                 <div class="controls">
                                                                     <label for="account-galop">Galop</label>
-                                                                    <input type="text" class="form-control" placeholder="Galop" value="<?= $_SESSION['galop'] ?>" name="galop" disabled>
+                                                                    <input type="text" class="form-control" placeholder="Galop" value="<?= $_SESSION['galop'] ?>" name="galop">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -238,13 +237,6 @@ session_start();
         </div>
     </div>
     <!-- END: Content-->
-
-
-
-
-
-
-
 
     <!-- BEGIN: Vendor JS-->
     <script src="../../app-assets/vendors/js/vendors.min.js"></script>
