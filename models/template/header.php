@@ -1,5 +1,7 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
-
 <!-- 
 Author: Kenzo Fahem
 -->
@@ -67,7 +69,7 @@ Author: Kenzo Fahem
             <div class="navbar-header">
                 <ul class="nav navbar-nav flex-row">
                     <li class="nav-item mobile-menu d-lg-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
-                    <li class="nav-item mr-auto"><a class="navbar-brand" href="index.html"><img class="brand-logo" alt="Website Logo" src="../../app-assets/images/logo/lo2go.png">
+                    <li class="nav-item mr-auto"><a class="navbar-brand" href="index.php"><img class="brand-logo" alt="Website Logo" src="../../app-assets/images/logo/lo2go.png">
                             <h4 class="brand-text">Equestrian World</h4>
                         </a></li>
                     <li class="nav-item d-none d-lg-block nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="toggle-icon ft-toggle-right font-medium-3 white" data-ticon="ft-toggle-right"></i></a></li>
@@ -88,10 +90,14 @@ Author: Kenzo Fahem
                             </div>
                         </li>
                     </ul>
+
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"><span class="mr-1 user-name text-bold-700">Kenzo Fahem</span><span class="avatar avatar-online"><img src="../../app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span></a>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a><a class="dropdown-item" href="app-kanban.html"><i class="ft-clipboard"></i> Todo</a><a class="dropdown-item" href="user-cards.html"><i class="ft-check-square"></i> Task</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="login-with-bg-image.html"><i class="ft-power"></i> Logout</a>
+                        <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"><span class="mr-1 user-name text-bold-700"><?= $_SESSION['prenom'] . " " . $_SESSION['nom'] ?></span><span class="avatar avatar-online"><img src="../../assets/uploadimg/<?= $_SESSION['photo'] ?>" alt="avatar"><i></i></span></a>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="../account/index.php"><i class="ft-user"></i> Compte</a>
+                                <form action="../account/traitement.php" method="POST">
+                                    <div class="dropdown-divider"></div><button class="dropdown-item" href="../account/traitement.php" name="logout"><i class="ft-power"></i> Déconnexion</button>
+
+                                </form>
                             </div>
                         </li>
                     </ul>

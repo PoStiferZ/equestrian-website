@@ -29,12 +29,19 @@ if (isset($_POST['close'])) {
 
             $_SESSION['photo'] = $dataUser['photo'];
 
+            $_SESSION['admin'] = $dataUser['admin'];
+
+            var_dump($_SESSION['admin']);
             // If user is a rider
             if ($dataUser['numeroLicence'] != null && $dataUser['niveauGalop'] != null) {
                 $_SESSION['licence'] = $dataUser['numeroLicence'];
                 $_SESSION['galop'] = $dataUser['niveauGalop'];
+                header("Location: ../account/index.php");
             }
-            header("Location: ../account/index.php");
+
+            if ($dataUser['admin'] == 1) {
+                header("Location: ../cavalier/index.php");
+            }
         }
     }
     if ($userConnexion == false) {
