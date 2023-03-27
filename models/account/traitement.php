@@ -37,3 +37,17 @@ if (isset($_POST['update'])) {
 
     header("Location: index.php");
 }
+
+if (isset($_POST['btnNewPassword'])) {
+    $id = $_SESSION['id'];
+    $oldPassword = $_POST['oldPassword'];
+    $newPassword = $_POST['newPassword'];
+    $confirmPassword = $_POST['confirmPassword'];
+
+    if ($newPassword == $confirmPassword) {
+        $result = $oCavalier->updatePassword($id, $oldPassword, $newPassword);
+        header("Location: index.php");
+    } else {
+        header("Location: index.php");
+    }
+}

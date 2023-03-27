@@ -103,15 +103,16 @@ session_start();
                                 <div class="card-content">
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <form action="traitement.php" method="POST" enctype="multipart/form-data">
-                                                <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
+                                            <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
+                                                <form action="traitement.php" method="POST" enctype="multipart/form-data">
                                                     <div class="media">
                                                         <a href="javascript: void(0);">
                                                             <img src="../../assets/uploadimg/<?= $_SESSION['photo'] ?>" class="rounded mr-75" alt="profile image" height="64" width="64">
                                                         </a>
                                                         <div class="media-body mt-75">
-                                                            <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
-                                                                <input type="file" name="photo">
+                                                            <div class="col-12 px-0 d-flex flex-sm-row flex-column jus  tify-content-start">
+                                                                <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer" for="account-upload">Modifier la photo</label>
+                                                                <input type="file" id="account-upload" name="photo" hidden>
                                                             </div>
 
                                                         </div>
@@ -184,16 +185,16 @@ session_start();
                                                             <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0" name="update">Sauvegarder</button>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </form>
-                                            <div class="tab-pane fade " id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
-                                                <form novalidate>
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane fade" id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
+                                                <form action="traitement.php" method="POST">
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
                                                                     <label for="account-old-password">Ancien mot de passe</label>
-                                                                    <input type="password" class="form-control" id="account-old-password" required placeholder="Ancien mot de passe" data-validation-required-message="This old password field is required">
+                                                                    <input type="password" class="form-control" id="account-old-password" required placeholder="Ancien mot de passe" name="oldPassword">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -201,20 +202,20 @@ session_start();
                                                             <div class="form-group">
                                                                 <div class="controls">
                                                                     <label for="account-new-password">Nouveau mot de passe</label>
-                                                                    <input type="password" name="password" id="account-new-password" class="form-control" placeholder="Nouveau mot de passe" required data-validation-required-message="The password field is required" minlength="6">
+                                                                    <input type="password" id="account-new-password" class="form-control" placeholder="Nouveau mot de passe" required minlength="1" name="newPassword">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-retype-new-password">Confirmer le nouveau mot de passe</label>
-                                                                    <input type="password" name="con-password" class="form-control" required id="account-retype-new-password" data-validation-match-match="password" placeholder="Nouveau mot de passe" data-validation-required-message="The Confirm password field is required" minlength="6">
+                                                                    <label for="account-retype-new-password">Confirmer mot de passe</label>
+                                                                    <input type="password" class="form-control" required id="account-retype-new-password" data-validation-match-match="password" placeholder="Confirmer mot de passe" minlength="1" name="confirmPassword">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0">Sauvegarder</button>
+                                                            <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0" name="btnNewPassword">Sauvegarder</button>
                                                         </div>
                                                     </div>
                                                 </form>

@@ -12,9 +12,10 @@ if (isset($_POST['close'])) {
 
     // Get all users
     $dataUsers = $oCavalier->findAll();
-
+    $userConnexion = false;
     foreach ($dataUsers as $dataUser) {
         if ($dataUser['mail'] == $email && $dataUser['mdp'] == $password) {
+            $userConnexion = true;
             // Start session
             session_start();
             $_SESSION['id'] = $dataUser['ID_Personne'];
@@ -33,11 +34,11 @@ if (isset($_POST['close'])) {
                 $_SESSION['licence'] = $dataUser['numeroLicence'];
                 $_SESSION['galop'] = $dataUser['niveauGalop'];
             }
-
             header("Location: ../account/index.php");
-        } else {
-            header("Location: index.php");
         }
+    }
+    if ($userConnexion == false) {
+        header("Location: index.php");
     }
 } else {
     header("Location: index.php");

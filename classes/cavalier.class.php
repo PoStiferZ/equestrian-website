@@ -243,6 +243,33 @@ class Cavalier extends Personne
         }
     }
 
+    public function updatePassword($id, $oldPassword, $newPassword)
+    {
+        global $db;
+        $check = false;
+        $request = "SELECT mdp FROM personne WHERE ID_Personne =:id";
+        $sql = $db->prepare($request);
+        $sql->bindValue(':id', $id, PDO::PARAM_INT);
+        $sql->execute();
+        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($result as $pass) {
+            if ($pass['mdp'] == $oldPassword) {
+                $check = true;
+                $request = "UPDATE personne SET mdp =:new WHERE ID_Personne = :id";
+                $sql = $db->prepare($request);
+                $sql->bindValue(':id', $id, PDO::PARAM_INT);
+                $sql->bindValue(':new', $newPassword, PDO::PARAM_STR);
+                $sql->execute();
+            }
+        }
+        try {
+            $sql->execute();
+            return $check;
+        } catch (PDOException $e) {
+            return $this->errmessage . $e->getMessage();
+        }
+    }
+
     public function updateById($id, $nom, $prenom, $dna, $mail, $telephone, $file, $galop, $licence)
     {
         global $db;
