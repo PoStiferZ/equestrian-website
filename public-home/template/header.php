@@ -64,7 +64,7 @@ Author: Kenzo Fahem
     <!-- BEGIN: SweatAlert2 CSS-->
     <link rel="stylesheet" type="text/css" href="<?= $dir ?>app-assets/vendors/extensions/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="<?= $dir ?>app-assets/vendors/animate/animate.css">
-    <!-- END: SweatAlert2 CSS-->*
+    <!-- END: SweatAlert2 CSS-->
 
 
 
@@ -162,11 +162,16 @@ Author: Kenzo Fahem
                                 <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?= $dir ?>models/connexion/"><i class="ft-user"></i> Se connecter</a>
                                 <?
                             } else { ?>
+
+
                                     <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?= $dir ?>models/account/index.php"><i class="ft-user"></i> Compte</a>
-                                    <?php
-                                } ?>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= $dir ?>models/cours/index.php"><i class="ft-calendar"></i> Cours</a>
 
                                     </div>
+                                <?php
+                            } ?>
+
+
                         </li>
                     </ul>
                 </div>

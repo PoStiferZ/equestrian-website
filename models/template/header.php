@@ -93,7 +93,6 @@ Author: Kenzo Fahem
                             </div>
                         </li>
                     </ul>
-
                     <ul class="nav navbar-nav float-right">
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"><span class="mr-1 user-name text-bold-700"><?= $_SESSION['prenom'] . " " . $_SESSION['nom'] ?></span><span class="avatar avatar-online"><img src="../../assets/uploadimg/<?= $_SESSION['photo'] ?>" alt="avatar"><i></i></span></a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="../account/index.php"><i class="ft-user"></i> Compte</a>
