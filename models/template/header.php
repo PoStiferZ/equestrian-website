@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (isset($type) && $type == 1) {
+} else {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <!-- 

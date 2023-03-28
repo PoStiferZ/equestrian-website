@@ -1,16 +1,4 @@
 <!DOCTYPE html>
-<!--
-Template Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
-Author: PixInvent
-Website: http://www.pixinvent.com/
-Contact: hello@pixinvent.com
-Follow: www.twitter.com/pixinvents
-Like: www.facebook.com/pixinvents
-Purchase: https://1.envato.market/modern_admin
-Renew Support: https://1.envato.market/modern_admin
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
-
--->
 <html class="loading" lang="en" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 

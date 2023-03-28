@@ -1,6 +1,13 @@
 <?php
 $title = "settings account";
-require("../template/header.php");
+session_start();
+$type = 1;
+if ($_SESSION['admin'] == 1) {
+    require("../template/header.php");
+} else {
+    require("../../public-home/template/header.php");
+}
+
 ?>
 
 <!-- BEGIN: Content-->
@@ -13,9 +20,8 @@ require("../template/header.php");
                 <div class="row breadcrumbs-top d-inline-block">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Pages</a>
+
+                            <li class="breadcrumb-item"><a href="#">Panneau Configuration</a>
                             </li>
                             <li class="breadcrumb-item active">Paramètres du compte
                             </li>
@@ -187,4 +193,5 @@ require("../template/header.php");
     </div>
 </div>
 <!-- END: Content-->
+
 <?php require("../template/footer.php"); ?>

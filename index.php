@@ -1,4 +1,7 @@
-<?php require("public-home/template/header.php"); ?>
+<?php
+$type = 0;
+require("public-home/template/header.php");
+?>
 <!-- Top Bar Space Start-->
 <!-- Top Bar Space Start-->
 <div id="header-area-space"></div>
@@ -17,7 +20,6 @@
                     <div class="small-title">Bienvenue à Equestrian World</div>
                     <div class="big-title">Cheveaux &amp; Cavalier</div>
                     <div class="title-text">Découvrez le monde merveilleux de l'équitation avec notre centre équestre, où passion, expertise et amour des chevaux se rejoignent pour offrir une expérience unique et inoubliable.</div>
-
                 </div>
             </div>
         </div>

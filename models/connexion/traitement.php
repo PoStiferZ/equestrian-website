@@ -30,8 +30,9 @@ if (isset($_POST['close'])) {
             $_SESSION['photo'] = $dataUser['photo'];
 
             $_SESSION['admin'] = $dataUser['admin'];
-
             var_dump($_SESSION['admin']);
+
+
             // If user is a rider
             if ($dataUser['numeroLicence'] != null && $dataUser['niveauGalop'] != null) {
                 $_SESSION['licence'] = $dataUser['numeroLicence'];
