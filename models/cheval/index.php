@@ -51,6 +51,7 @@ if ($title != 'cours') {
                                         <table class="table table-striped table-bordered zero-configuration">
                                             <thead>
                                                 <tr>
+                                                    <th>Photo</th>
                                                     <th>Libelle</th>
                                                     <th>Date de naissance</th>
                                                     <th>SIR</th>
@@ -63,7 +64,9 @@ if ($title != 'cours') {
                                                 foreach ($chevFind as $value) {
                                                 ?>
                                                     <tr>
-
+                                                        <td>
+                                                            <img src='../../assets/uploadimg/<?= $value['photo'] ?>' class="listPhoto">
+                                                        </td>
                                                         <td>
                                                             <p class="td-p1-nom"><?= $value['nom_Cheval'] ?></p>
                                                         </td>

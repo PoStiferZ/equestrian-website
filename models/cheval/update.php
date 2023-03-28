@@ -96,6 +96,15 @@ if ($title != 'cours') {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group mt-2">
+                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#default">
+                                                                <i class="la la-folder"></i> Changer de photo
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="form-actions">
                                                     <button type="submit" class="btn btn-danger mr-1" name="close">
                                                         <i class="ft-x"></i> Annuler
@@ -104,6 +113,34 @@ if ($title != 'cours') {
                                                         <i class="la la-check-square-o"></i> Enregistrer les modifications
                                                     </button>
                                                 </div>
+                                                <!-- START: Modal Photo-->
+                                                <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="card">
+                                                                            <div class="card-header">
+                                                                                <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                                                                            </div>
+                                                                            <div class="card-content collapse show">
+                                                                                <div class="card-body">
+                                                                                    <div class="dz-message">Glisser / Déposer son image</div>
+                                                                                    <input type="file" class="dropzone dropzone-area" id="dpz-single-file" name="photo" value="<?= $cavalier['photo'] ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Retour</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END : MODAL PHOTO-->
                                         </form>
                                     </div>
                                 </div>

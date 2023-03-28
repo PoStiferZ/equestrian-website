@@ -7,7 +7,7 @@ if (isset($_POST['close'])) {
     $chevFind = $oCheval->findAll();
 
     if (isset($_POST['submit'])) {
-        $chevCreate = $oCheval->create($_POST['nomC'], $_POST['dnaC'], $_POST['sir'], $_POST['idRobe']);
+        $chevCreate = $oCheval->create($_POST['nomC'], $_POST['dnaC'], $_FILES['photo'], $_POST['sir'], $_POST['idRobe']);
         header("Location: index.php");
     }
 
@@ -16,7 +16,7 @@ if (isset($_POST['close'])) {
     }
 
     if (isset($_POST['Update'])) {
-        $chevUpdate = $oCheval->updateById($_POST['ID_Cheval'], $_POST['nomC'], $_POST['dnaC'], $_POST['sir'], $_POST['idRobe']);
+        $chevUpdate = $oCheval->updateById($_POST['ID_Cheval'], $_POST['nomC'], $_POST['dnaC'], $_FILES['photo'], $_POST['sir'], $_POST['idRobe']);
         header("Location: index.php");
     }
 

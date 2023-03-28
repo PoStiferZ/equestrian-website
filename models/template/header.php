@@ -2,6 +2,9 @@
 if (isset($type) && $type == 1) {
 } else {
     session_start();
+    if ($_SESSION['admin'] != 1) {
+        header("Location: ../../");
+    }
 }
 ?>
 <!DOCTYPE html>

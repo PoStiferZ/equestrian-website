@@ -187,7 +187,7 @@ if ($title != 'cours') {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- END : MODAL -->
+                                                <!-- END : MODAL PHOTO-->
 
                                                 <!-- START : Modal Responsable -->
                                                 <div class="modal fade text-left" id="defaultResponsable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
