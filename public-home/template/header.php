@@ -165,7 +165,7 @@ Author: Kenzo Fahem
 
 
                                     <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?= $dir ?>models/account/index.php"><i class="ft-user"></i> Compte</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= $dir ?>models/cours/index.php"><i class="ft-calendar"></i> Cours</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= $dir ?>models/usercalendar/index.php"><i class="ft-calendar"></i> Cours</a>
 
                                     </div>
                                 <?php

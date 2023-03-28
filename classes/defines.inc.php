@@ -20,6 +20,8 @@ require("tarif.class.php");
 require("inscription.class.php");
 require("responsable.class.php");
 require("typepension.class.php");
+require("cours.class.php");
+
 
 
 
@@ -31,3 +33,4 @@ $oTarif = new Tarif("", 0);
 $oInscription = new Inscription("", 0, 0, 0);
 $oResponsable = new Responsable("", "", "", "", "", "", "", "", "", "");
 $oTypePension = new TypePension("");
+$oCours = new Cours(0, "", "", "", "", "", 0);

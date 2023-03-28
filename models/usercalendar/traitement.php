@@ -1,0 +1,2 @@
+<?php
+$alldata = $oCours->findAll();
