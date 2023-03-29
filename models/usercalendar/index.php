@@ -114,34 +114,23 @@ require('traitement.php');
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
-                                            <form action="traitement.php" method="POST">
+                                            <form action="index.php" method="POST">
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <div class="controls">
-                                                                <label for="account-old-password">Ancien mot de passe</label>
-                                                                <input type="password" class="form-control" id="account-old-password" required placeholder="Ancien mot de passe" name="oldPassword">
-                                                            </div>
+                                                            <input type="text" name="idPersonne" value="<?= $_SESSION['id']; ?>" hidden>
+                                                            <label>Cours</label>
+                                                            <select name="idCours" class="form-control">
+                                                                <?php foreach ($allDataInscriptionCours as $value) {
+                                                                    echo "<option " . " value='" . $value['ID_Recurrence'] . "' >" . $value['title'] . "</option>";
+                                                                }
+                                                                ?>
+                                                            </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <div class="controls">
-                                                                <label for="account-new-password">Nouveau mot de passe</label>
-                                                                <input type="password" id="account-new-password" class="form-control" placeholder="Nouveau mot de passe" required minlength="1" name="newPassword">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <div class="controls">
-                                                                <label for="account-retype-new-password">Confirmer mot de passe</label>
-                                                                <input type="password" class="form-control" required id="account-retype-new-password" data-validation-match-match="password" placeholder="Confirmer mot de passe" minlength="1" name="confirmPassword">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0" name="btnNewPassword">Sauvegarder</button>
+                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0" name="newInscriptionCours">Sauvegarder</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -165,4 +154,5 @@ require('traitement.php');
 </div>
 <!-- END: Content-->
 
-<?php require("../template/footer.php"); ?>
+<?php
+require("../template/footer.php"); ?>
