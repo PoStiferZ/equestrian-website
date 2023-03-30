@@ -61,7 +61,7 @@ require('traitement.php');
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
                                             <div>
-                                                <h3>Cours</h3>
+                                                <h3>Les 5 prochains cours</h3>
                                             </div>
                                             <hr>
                                             <div class="row">
@@ -73,6 +73,7 @@ require('traitement.php');
                                                                     <tr>
                                                                         <th>Nom du cours</th>
                                                                         <th>Date</th>
+                                                                        <th>Horaire</th>
                                                                         <th>Durée</th>
                                                                         <th>Présence / Absence</th>
                                                                     </tr>
@@ -88,8 +89,15 @@ require('traitement.php');
                                                                             </td>
                                                                             <td>
                                                                                 <p class="td-p1-nom"><?php $date = date_create($data['start_event']);
+                                                                                                        setlocale(LC_TIME, 'fra');
+                                                                                                        echo ucfirst(strftime('%A, %e %B %Y', strtotime($date->format('Y-m-d'))));
+
+                                                                                                        ?></p>
+                                                                            </td>
+                                                                            <td>
+                                                                                <p class="td-p1-nom"><?php $date = date_create($data['start_event']);
                                                                                                         $date2 = date_create($data['end_event']);
-                                                                                                        echo date_format($date, "d/m/Y - H:i") . " - " . date_format($date2, "H:i");
+                                                                                                        echo date_format($date, "H:i") . " - " . date_format($date2, "H:i");
                                                                                                         ?></p>
                                                                             </td>
                                                                             <td>
@@ -125,8 +133,6 @@ require('traitement.php');
                                                         </div>
                                                     </div>
                                                 </div>
-
-
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">

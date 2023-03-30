@@ -138,12 +138,12 @@ class InscriptionCours
         }
     }
 
-    public function findById($idR)
+    public function pagination($idPersonne)
     {
         global $db;
-        $request = "SELECT * FROM robe WHERE actif='1' AND ID_Robe =:idR";
+        $request = $db->query("SELECT COUNT(*) FROM inscription_cours WHERE id_personne = :idPersonne")->fetchColumn();
         $sql = $db->prepare($request);
-        $sql->bindValue(':idR', $idR, PDO::PARAM_INT);
+        $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
         try {
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_ASSOC);
