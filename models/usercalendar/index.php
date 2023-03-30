@@ -99,7 +99,11 @@ require('traitement.php');
                                                                             </td>
 
                                                                             <td>
-                                                                                <a href="update.php?id=<?= $value['id'] ?>">Signaler son asbence</a>
+                                                                                <form action="index.php" method="POST">
+                                                                                    <input type="text" value="<?= $_SESSION['id'] ?>" name="idPersonne">
+                                                                                    <input type="text" value="<?= $data['id'] ?>" name="idCours">
+                                                                                    <button name="beMissing">Absence</button>
+                                                                                </form>
                                                                             </td>
                                                                         <?php
                                                                     }

@@ -182,7 +182,7 @@ class Cours
     public function findById($idPersonne)
     {
         global $db;
-        $request = "SELECT I.id_personne, E.title, E.start_event, E.end_event, 
+        $request = "SELECT I.id_personne,E.id, E.title, E.start_event, E.end_event, 
         TIMESTAMPDIFF(HOUR, E.start_event, E.end_event) AS duree
         FROM inscription_cours I 
         INNER JOIN events E ON I.id_cours = E.id

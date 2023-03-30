@@ -166,12 +166,13 @@ class InscriptionCours
         }
     }
 
-    public function deleteById($idR)
+    public function beMissing($idPersonne, $idCours)
     {
         global $db;
-        $request = "UPDATE robe SET actif = 0 WHERE ID_Robe = :idR";
+        $request = "UPDATE inscription_cours SET presence = 0 WHERE id_personne = :idPersonne AND id_cours = :idCours";
         $sql = $db->prepare($request);
-        $sql->bindValue(':idR', $idR, PDO::PARAM_INT);
+        $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
+        $sql->bindValue(':idCours', $idCours, PDO::PARAM_INT);
         try {
             return $sql->execute();
         } catch (PDOException $e) {
