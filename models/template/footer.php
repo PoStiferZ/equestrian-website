@@ -11,9 +11,9 @@
 ?>
     <!-- Ce script ne fonctionne pas avec full calendar -->
     <script src="../../app-assets/vendors/js/vendors-jquery.min.js"></script>
+    <script src="../../app-assets/vendors/js/vendors.min.js"></script>
 <?php
 } ?>
-<script src="../../app-assets/vendors/js/vendors.min.js"></script>
 
 <script src="../../app-assets/vendors/js/charts/chart.min.js"></script>
 <script src="../../app-assets/vendors/js/charts/raphael-min.js"></script>

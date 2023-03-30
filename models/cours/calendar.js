@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }).focus();
     });
 
+    $(".colorpicker").colorpicker();
 
     var calendarEl = document.getElementById('calendar');
 

@@ -32,8 +32,6 @@ require('config.php'); ?>
 
 <body>
 
-
-
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
