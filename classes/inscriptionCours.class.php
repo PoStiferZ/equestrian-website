@@ -141,16 +141,18 @@ class InscriptionCours
     public function pagination($idPersonne)
     {
         global $db;
-        $request = $db->query("SELECT COUNT(*) FROM inscription_cours WHERE id_personne = :idPersonne")->fetchColumn();
+        $request = "SELECT COUNT(*) FROM inscription_cours WHERE id_personne = :idPersonne";
         $sql = $db->prepare($request);
         $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
+        $sql->execute();
+        $total = $sql->fetchColumn();
         try {
-            $sql->execute();
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $pages = ceil($total / 5);
         } catch (PDOException $e) {
             return $this->errmessage . $e->getMessage();
         }
     }
+
 
     public function updateById($idR, $libR)
     {

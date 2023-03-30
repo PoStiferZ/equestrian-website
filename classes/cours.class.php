@@ -179,7 +179,7 @@ class Cours
         }
     }
 
-    public function findById($idPersonne)
+    public function findById($idPersonne, $limit, $offset)
     {
         global $db;
         $request = "SELECT I.id_personne, I.presence, E.id, E.title, E.start_event, E.end_event, 
@@ -189,9 +189,11 @@ class Cours
         WHERE id_personne = :idPersonne
         AND E.start_event >= NOW()
         ORDER BY E.start_event ASC
-        LIMIT 5";
+        LIMIT :limite OFFSET :offset";
         $sql = $db->prepare($request);
         $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
+        $sql->bindValue(':limite', $limit, PDO::PARAM_INT);
+        $sql->bindValue(':offset', $offset, PDO::PARAM_INT);
         try {
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_ASSOC);

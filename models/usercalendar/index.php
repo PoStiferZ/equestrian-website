@@ -61,7 +61,7 @@ require('traitement.php');
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
                                             <div>
-                                                <h3>Les 5 prochains cours</h3>
+                                                <h3>Cours</h3>
                                             </div>
                                             <hr>
                                             <div class="row">
@@ -80,7 +80,8 @@ require('traitement.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-                                                                    /* Tous les cavaliers */
+
+
                                                                     foreach ($alldata as $data) {
                                                                     ?>
                                                                         <tr>
@@ -90,7 +91,7 @@ require('traitement.php');
                                                                             <td>
                                                                                 <p class="td-p1-nom"><?php $date = date_create($data['start_event']);
                                                                                                         setlocale(LC_TIME, 'fra');
-                                                                                                        echo ucfirst(strftime('%A, %e %B %Y', strtotime($date->format('Y-m-d'))));
+                                                                                                        echo utf8_encode(ucfirst(strftime('%A, %e %B %Y', strtotime($date->format('Y-m-d')))));
 
                                                                                                         ?></p>
                                                                             </td>
@@ -108,6 +109,7 @@ require('traitement.php');
                                                                                 if ($data['presence'] == 0) {
                                                                                 ?>
                                                                                     <form action="index.php" method="POST">
+                                                                                        <input type="text" name="page" value="<?= $_GET['page'] ?>" hidden>
                                                                                         <input type="text" value="<?= $_SESSION['id'] ?>" name="idPersonne" hidden>
                                                                                         <input type="text" value="<?= $data['id'] ?>" name="idCours" hidden>
                                                                                         <button class="btn btn-danger" name="bePresent"> Absent(e)</button>
@@ -116,6 +118,7 @@ require('traitement.php');
                                                                                 } else {
                                                                                 ?>
                                                                                     <form action="index.php" method="POST">
+                                                                                        <input type="text" name="page" value="<?= $_GET['page'] ?>" hidden>
                                                                                         <input type="text" value="<?= $_SESSION['id'] ?>" name="idPersonne" hidden>
                                                                                         <input type="text" value="<?= $data['id'] ?>" name="idCours" hidden>
                                                                                         <button class="btn btn-success" name="beMissing"> Présent(e)</button>
@@ -130,6 +133,33 @@ require('traitement.php');
                                                                         </tr>
                                                                 </tbody>
                                                             </table>
+                                                            <nav aria-label="...">
+                                                                <ul class="pagination">
+                                                                    <li class="page-item">
+                                                                        <?php
+                                                                        if ($page > 1) {
+                                                                            echo '<a class="page-link bg-dark text-white" href="?page=' . ($page - 1) . '&limit=' . $limit . '">Précédent</a>';
+                                                                        }
+                                                                        ?>
+                                                                    </li>
+                                                                    <?php
+                                                                    for ($i = 1; $i <= $pages; $i++) {
+                                                                        if ($i == $page) {
+                                                                    ?>
+                                                                            <li class="page-item active">
+                                                                                <a class="page-link bg-dark  border-dark" href="#"><?= $i ?></a>
+                                                                            </li>
+                                                                    <?php
+                                                                        } else {
+                                                                            echo '<a class="page-link text-dark  border-dark " href="?page=' . $i . '&limit=' . $limit . '">' . $i . '</a>';
+                                                                        }
+                                                                    }
+                                                                    if ($page < $pages) {
+                                                                        echo '<a class="page-link bg-dark text-white" href="?page=' . ($page + 1) . '&limit=' . $limit . '">Suivant</a>';
+                                                                    }
+                                                                    ?>
+                                                                </ul>
+                                                            </nav>
                                                         </div>
                                                     </div>
                                                 </div>
