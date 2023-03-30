@@ -179,4 +179,18 @@ class InscriptionCours
             return $this->errmessage . $e->getMessage();
         }
     }
+
+    public function bePresent($idPersonne, $idCours)
+    {
+        global $db;
+        $request = "UPDATE inscription_cours SET presence = 1 WHERE id_personne = :idPersonne AND id_cours = :idCours";
+        $sql = $db->prepare($request);
+        $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
+        $sql->bindValue(':idCours', $idCours, PDO::PARAM_INT);
+        try {
+            return $sql->execute();
+        } catch (PDOException $e) {
+            return $this->errmessage . $e->getMessage();
+        }
+    }
 }

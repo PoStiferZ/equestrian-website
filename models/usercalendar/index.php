@@ -74,7 +74,7 @@ require('traitement.php');
                                                                         <th>Nom du cours</th>
                                                                         <th>Date</th>
                                                                         <th>Durée</th>
-
+                                                                        <th>Présence / Absence</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -83,11 +83,9 @@ require('traitement.php');
                                                                     foreach ($alldata as $data) {
                                                                     ?>
                                                                         <tr>
-
                                                                             <td>
                                                                                 <p class="td-p1-nom"><?= $data['title'] ?></p>
                                                                             </td>
-
                                                                             <td>
                                                                                 <p class="td-p1-nom"><?php $date = date_create($data['start_event']);
                                                                                                         $date2 = date_create($data['end_event']);
@@ -97,13 +95,26 @@ require('traitement.php');
                                                                             <td>
                                                                                 <p class="td-p1-nom"><?= $data['duree'] . " h" ?></p>
                                                                             </td>
-
                                                                             <td>
-                                                                                <form action="index.php" method="POST">
-                                                                                    <input type="text" value="<?= $_SESSION['id'] ?>" name="idPersonne">
-                                                                                    <input type="text" value="<?= $data['id'] ?>" name="idCours">
-                                                                                    <button name="beMissing">Absence</button>
-                                                                                </form>
+                                                                                <?php
+                                                                                if ($data['presence'] == 0) {
+                                                                                ?>
+                                                                                    <form action="index.php" method="POST">
+                                                                                        <input type="text" value="<?= $_SESSION['id'] ?>" name="idPersonne" hidden>
+                                                                                        <input type="text" value="<?= $data['id'] ?>" name="idCours" hidden>
+                                                                                        <button class="btn btn-danger" name="bePresent"> Absent(e)</button>
+                                                                                    </form>
+                                                                                <?
+                                                                                } else {
+                                                                                ?>
+                                                                                    <form action="index.php" method="POST">
+                                                                                        <input type="text" value="<?= $_SESSION['id'] ?>" name="idPersonne" hidden>
+                                                                                        <input type="text" value="<?= $data['id'] ?>" name="idCours" hidden>
+                                                                                        <button class="btn btn-success" name="beMissing"> Présent(e)</button>
+                                                                                    </form>
+                                                                                <?
+                                                                                }
+                                                                                ?>
                                                                             </td>
                                                                         <?php
                                                                     }
