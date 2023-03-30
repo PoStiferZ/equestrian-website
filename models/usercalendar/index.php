@@ -72,8 +72,8 @@ require('traitement.php');
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Nom du cours</th>
-                                                                        <th>Début</th>
-                                                                        <th>Fin</th>
+                                                                        <th>Date</th>
+                                                                        <th>Durée</th>
 
                                                                     </tr>
                                                                 </thead>
@@ -95,8 +95,9 @@ require('traitement.php');
                                                                                                         ?></p>
                                                                             </td>
                                                                             <td>
-                                                                                <p class="td-p1-nom"><?php  ?></p>
+                                                                                <p class="td-p1-nom"><?= $data['duree'] . " h" ?></p>
                                                                             </td>
+
                                                                             <td>
                                                                                 <a href="update.php?id=<?= $value['id'] ?>">Signaler son asbence</a>
                                                                             </td>
@@ -130,6 +131,7 @@ require('traitement.php');
                                                     </div>
 
                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+
                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0" name="newInscriptionCours">Sauvegarder</button>
                                                     </div>
                                                 </div>
@@ -139,7 +141,7 @@ require('traitement.php');
                                 </div>
                             </div>
                         </div>
-                        <form action="traitement.php" method="POST">
+                        <form action="../account/traitement.php" method="POST">
                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                 <button type="submit" class="btn btn-danger mr-sm-1 mb-1 mb-sm-0" name="logout">Déconnexion</button>
                             </div>

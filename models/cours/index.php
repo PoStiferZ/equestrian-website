@@ -311,7 +311,6 @@ require('config.php'); ?>
                                                                             <input type="text" class="form-control colorpicker" id="editTextColor" name="editTextColor" value="#ffffff">
                                                                         </div> -->
                                                                     </div>
-
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <div class="row">
@@ -326,14 +325,10 @@ require('config.php'); ?>
                                                 </div>
                                             </div>
                                         </div>
-
-
                                         <div class="container">
-
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addeventmodal">
                                                 Ajouter un cours
                                             </button>
-
                                             <div id="calendar"></div>
                                         </div>
 

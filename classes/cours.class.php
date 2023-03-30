@@ -179,12 +179,19 @@ class Cours
         }
     }
 
-    public function findById($idR)
+    public function findById($idPersonne)
     {
         global $db;
-        $request = "SELECT * FROM robe WHERE actif='1' AND ID_Robe =:idR";
+        $request = "SELECT I.id_personne, E.title, E.start_event, E.end_event, 
+        TIMESTAMPDIFF(HOUR, E.start_event, E.end_event) AS duree
+        FROM inscription_cours I 
+        INNER JOIN events E ON I.id_cours = E.id
+        WHERE id_personne = :idPersonne
+        AND E.start_event >= NOW()
+        ORDER BY E.start_event ASC
+        LIMIT 5";
         $sql = $db->prepare($request);
-        $sql->bindValue(':idR', $idR, PDO::PARAM_INT);
+        $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
         try {
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_ASSOC);

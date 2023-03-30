@@ -1,5 +1,5 @@
 <?php
-$alldata = $oCours->findAll();
+$alldata = $oCours->findById($_SESSION['id']);
 $allDataInscriptionCours = $oInscriptionCours->findAll();
 
 if (isset($_POST['newInscriptionCours'])) {
