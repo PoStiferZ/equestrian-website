@@ -23,7 +23,6 @@ Author: Kenzo Fahem
     <link rel="apple-touch-icon" href="../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../app-assets/images/logo/lo2go.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/vendors.min.css">
@@ -61,7 +60,18 @@ Author: Kenzo Fahem
     <link rel="stylesheet" type="text/css" href="../../app-assets/vendors/animate/animate.css">
     <!-- END: SweatAlert2 CSS-->
 
-
+    <!-- BEGIN: Autocompletion CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- BEGIN: Autocompletion CSS -->
+    <?php if ($title != "cours") {
+    ?>
+        <!-- Ce script ne fonctionne pas avec full calendar -->
+        <script src="../../app-assets/vendors/js/vendors-jquery.min.js"></script>
+        <script src="../../app-assets/vendors/js/vendors.min.js"></script>
+    <?php
+    } ?>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
 </head>
 <!-- END: Head-->

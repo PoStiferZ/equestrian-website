@@ -64,7 +64,13 @@ if ($title != 'cours') {
                                                         <input type="text" id="projectinput2" class="form-control" placeholder="Nom" name="nom">
                                                     </div>
                                                 </div>
+
                                             </div>
+
+
+
+
+
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -222,26 +228,50 @@ if ($title != 'cours') {
                                                                         <div class="row">
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
-                                                                                    <label for="projectinput3">Code Postal</label>
-                                                                                    <input type="text" id="projectinput3" class="form-control" placeholder="Code Postal" name="cp">
+                                                                                    <label for="projectinputVille">Ville</label>
+                                                                                    <input type="text" id="ville" class="form-control" placeholder="Ville" name="ville">
+                                                                                    <script>
+                                                                                        $(document).ready(function() {
+                                                                                            $.getJSON('cities.json', function(data) {
+                                                                                                var cities = [];
+                                                                                                $.each(data, function(index, city) {
+                                                                                                    cities.push(city.Nom_commune);
+                                                                                                });
+
+                                                                                                $('#ville').autocomplete({
+                                                                                                    source: cities,
+                                                                                                    minLength: 3,
+                                                                                                    select: function(event, ui) {
+                                                                                                        var selectedCity = ui.item.value;
+                                                                                                        var selectedPostalCode = '';
+                                                                                                        $.each(data, function(index, city) {
+                                                                                                            if (city.Nom_commune === selectedCity) {
+                                                                                                                selectedPostalCode = city.Code_postal;
+                                                                                                            }
+                                                                                                        });
+                                                                                                        $('#codePostal').val(selectedPostalCode);
+                                                                                                    }
+                                                                                                });
+                                                                                            });
+                                                                                        });
+                                                                                    </script>
+
+
+                                                                                    <style>
+                                                                                        .ui-autocomplete {
+                                                                                            z-index: 9999;
+                                                                                        }
+                                                                                    </style>
                                                                                 </div>
                                                                             </div>
-                                                                            <!-- <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="projectinputVille">Ville</label>
-                                                                                    <input type="text" id="projectinputVille" class="form-control" placeholder="Ville" name="ville">
-
-                                                                                    <input type="text" id="ville" placeholder="Entrez une ville">
-                                                                                    <ul id="suggestions"></ul>
-
-                                                                                </div>
-                                                                            </div> -->
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
-                                                                                    <label for="projectinput3">Ville</label>
-                                                                                    <input type="text" id="ville" class="form-control">
+                                                                                    <label for="codePostal">Code Postal</label>
+                                                                                    <input type="text" id="codePostal" class="form-control" placeholder="Code Postal" name="cp">
                                                                                 </div>
                                                                             </div>
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -272,16 +302,9 @@ if ($title != 'cours') {
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-        var cities = ["Paris", "Marseille", "Lyon"];
-
-        $('#ville').autocomplete({
-            source: cities
-        });
-    });
-</script>
 <?php
 require("../template/footer.php");
 ?>
