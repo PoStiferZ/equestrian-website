@@ -73,18 +73,19 @@
                         <label for="user-password">Mot de passe</label>
                         <input type="password" class="form-control" id="user-password" placeholder="Votre mot de passe" name="password">
                       </fieldset>
-                      <div class="form-group row">
+                      <!--  <div class="form-group row">
                         <div class="col-sm-6 col-12 text-center text-sm-left">
                         </div>
                         <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a href="../../recover-password.html" class="card-link">Mot de passe oublié ?</a></div>
-                      </div>
+                      </div> -->
                       <div class="row">
-                        <div class="col-md-6">
-                          <button type="submit" class="btn btn-outline-black btn-block" name="close"><i class="ft-arrow-left-circle"></i> Annuler</button>
-                        </div>
                         <div class="col-md-6">
                           <button type="submit" class="btn btn-outline-success btn-block"><i class="ft-unlock"></i> Se connecter</button>
                         </div>
+                        <div class="col-md-6">
+                          <button type="submit" class="btn btn-outline-black btn-block" name="close"><i class="ft-arrow-left-circle"></i> Annuler</button>
+                        </div>
+
                       </div>
                     </form>
                   </div>

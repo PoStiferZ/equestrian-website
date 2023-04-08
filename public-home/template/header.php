@@ -131,10 +131,12 @@ Author: Kenzo Fahem
                 <div class="collapse navbar-collapse" id="navbar-mobile">
                     <ul class="nav navbar-nav mr-auto float-left">
                         <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand" href="<?= $dir ?>#"></i></a></li>
-                        <li class="dropdown nav-item mega-dropdown d-none d-lg-block"><a class="dropdown-toggle nav-link" href="<?= $dir ?>">Accueil</a>
-                        <li class="dropdown nav-item mega-dropdown d-none d-lg-block"><a class="dropdown-toggle nav-link" href="<?= $dir ?>#2">A propos</a>
-                        <li class="dropdown nav-item mega-dropdown d-none d-lg-block"><a class="dropdown-toggle nav-link" href="<?= $dir ?>#3">Pension</a>
-                        <li class="dropdown nav-item mega-dropdown d-none d-lg-block"><a class="dropdown-toggle nav-link" href="<?= $dir ?>#4">Nous contacter</a>
+                        <li class="dropdown nav-item mega-dropdown d-none d-lg-block"><a class="dropdown-toggle nav-link" href="<?= $dir ?>./">Accueil</a>
+                        <li class="dropdown nav-item mega-dropdown d-none d-lg-block"><a class="dropdown-toggle nav-link" href="<?= $dir ?>./chevaux.php">Nos chevaux</a>
+
+                            <!-- <li class=" dropdown nav-item mega-dropdown d-none d-lg-block"><a class="dropdown-toggle nav-link" href="<?= $dir ?>#2">A propos</a>
+                        <li class="dropdown nav-item mega-dropdown d-none d-lg-block"><a class="dropdown-toggle nav-link" href="<?= $dir ?>#3">Pension</a> -->
+                        <li class="dropdown nav-item mega-dropdown d-none d-lg-block"><a class="dropdown-toggle nav-link" href="<?= $dir ?>./contact.php">Nous contacter</a>
 
 
                         </li>
@@ -165,9 +167,25 @@ Author: Kenzo Fahem
 
 
                                     <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?= $dir ?>models/account/index.php"><i class="ft-user"></i> Compte</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= $dir ?>models/usercalendar/index.php"><i class="ft-calendar"></i> Cours</a>
+                                        <?php
+                                        if ($_SESSION['admin'] == 0) {
+                                        ?>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= $dir ?>models/usercalendar/index.php"><i class="ft-calendar"></i> Cours</a>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= $dir ?>models/contact/index.php"><i class="ft-mail"></i> Contact</a>
+                                        <?php
+                                        }
+                                        ?>
 
+                                        <form action="<?= $dir ?>models/account/traitement.php" method="POST">
+                                            <div class="dropdown-divider"></div><button class="dropdown-item" name="logout"><i class="ft-power"></i> Déconnexion</button>
+
+                                        </form>
                                     </div>
+
+
                                 <?php
                             } ?>
 

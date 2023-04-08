@@ -23,6 +23,7 @@ Author: Kenzo Fahem
     <link rel="apple-touch-icon" href="../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../app-assets/images/logo/lo2go.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/vendors.min.css">
@@ -98,11 +99,15 @@ Author: Kenzo Fahem
                     </ul>
                     <ul class="nav navbar-nav float-right">
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"><span class="mr-1 user-name text-bold-700"><?= $_SESSION['prenom'] . " " . $_SESSION['nom'] ?></span><span class="avatar avatar-online"><img src="../../assets/uploadimg/<?= $_SESSION['photo'] ?>" alt="avatar"><i></i></span></a>
+
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="../account/index.php"><i class="ft-user"></i> Compte</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="../contact/index.php" name="logout"><i class="ft-mail"></i> Contact</a>
+
                                 <form action="../account/traitement.php" method="POST">
                                     <div class="dropdown-divider"></div><button class="dropdown-item" href="../account/traitement.php" name="logout"><i class="ft-power"></i> Déconnexion</button>
 
                                 </form>
+
                             </div>
                         </li>
                     </ul>
@@ -117,6 +122,10 @@ Author: Kenzo Fahem
     <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" navigation-header"><span data-i18n="Admin Panels">
+                    </span><i class="la la-ellipsis-h" data-toggle="tooltip" data-placement="right" data-original-title="Admin Panels"></i>
+                </li>
+                <li class=" nav-item"><a href="../../index.php"><i class="la la-home"></i><span class="menu-title" data-i18n="eCommerce">Accueil</span></a>
 
                 <li class=" navigation-header"><span data-i18n="Admin Panels">Panneau d'administration
                     </span><i class="la la-ellipsis-h" data-toggle="tooltip" data-placement="right" data-original-title="Admin Panels"></i>

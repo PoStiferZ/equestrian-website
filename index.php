@@ -18,7 +18,7 @@ require("public-home/template/header.php");
             <div class="slider-content s-tb slide-5">
                 <div class="title-container s-tb-c">
                     <div class="small-title">Bienvenue à Equestrian World</div>
-                    <div class="big-title">Cheveaux &amp; Cavalier</div>
+                    <div class="big-title">Chevaux &amp; Cavaliers</div>
                     <div class="title-text">Découvrez le monde merveilleux de l'équitation avec notre centre équestre, où passion, expertise et amour des chevaux se rejoignent pour offrir une expérience unique et inoubliable.</div>
                 </div>
             </div>
@@ -27,7 +27,7 @@ require("public-home/template/header.php");
             <div class="slider-content s-tb slide-6">
                 <div class="title-container s-tb-c">
                     <div class="small-title">Bienvenue à Equestrian World</div>
-                    <div class="big-title">Cheveaux &amp; Cavalier</div>
+                    <div class="big-title">Chevaux &amp; Cavaliers</div>
                     <div class="title-text">Découvrez le monde merveilleux de l'équitation avec notre centre équestre, où passion, expertise et amour des chevaux se rejoignent pour offrir une expérience unique et inoubliable.</div>
                 </div>
             </div>
@@ -36,7 +36,7 @@ require("public-home/template/header.php");
             <div class="slider-content s-tb slide-6">
                 <div class="title-container s-tb-c">
                     <div class="small-title">Bienvenue à Equestrian World</div>
-                    <div class="big-title">Cheveaux &amp; Cavalier</div>
+                    <div class="big-title">Chevaux &amp; Cavaliers</div>
                     <div class="title-text">Découvrez le monde merveilleux de l'équitation avec notre centre équestre, où passion, expertise et amour des chevaux se rejoignent pour offrir une expérience unique et inoubliable.</div>
                 </div>
             </div>
@@ -51,16 +51,18 @@ require("public-home/template/header.php");
 <div class="section-space-less30">
     <div class="container ">
         <div class="section-title-bar-left">
-            <h2>Nos <span>chevaux</span> en pension</h2>
+            <h2>Nos <span>chevaux</span></h2>
         </div>
         <div class="row">
             <?php
             $chevFind = $oCheval->findAll();
             $pensionFind = $oPension->findAll();
-
+            $i = 0;
             foreach ($chevFind as $value) {
+                $i++;
+
                 foreach ($pensionFind as $result) {
-                    if ($result['ID_Cheval'] == $value['ID_Cheval']) {
+                    if ($result['ID_Cheval'] == $value['ID_Cheval'] && $i < 4) {
             ?>
                         <div class="col-lg-3 col-md-3 col-xs-3 col-mb-12">
                             <div class="service-layout1">
@@ -73,12 +75,15 @@ require("public-home/template/header.php");
                                 </div>
                             </div>
                         </div>
+
             <?php
                     }
                 }
             }
             ?>
         </div>
+        <a class="btn btn-dark text-white" href="chevaux.php">Voir plus</a>
+
     </div>
 </div>
 <!-- Featured Services Area End Here -->
@@ -170,7 +175,7 @@ require("public-home/template/header.php");
             <h2>Nos experts de l'équitation</h2>
             <p>Notre équipe est composée d'experts passionnés de l'équitation, dédiés à partager leur savoir-faire et leur expérience avec nos clients. Nous offrons des conseils personnalisés, des cours de qualité supérieure et une expertise approfondie en matière d'équitation pour tous les niveaux de cavaliers.</p>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-4">
                 <div class="expart-team-layout2">
                     <div class="image-box">
@@ -189,7 +194,7 @@ require("public-home/template/header.php");
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- Expert Team Area End Here -->

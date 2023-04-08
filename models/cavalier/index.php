@@ -161,8 +161,8 @@ if ($title != 'cours') {
                                                                                                     </div>
                                                                                                     <div class="col-md-6">
                                                                                                         <div class="form-group">
-                                                                                                            <label for="projectinput3">Ville</label>
-                                                                                                            <input type="text" disabled id="projectinput3" class="form-control" value="<?= $valueR['ville'] ?>">
+                                                                                                            <label for="projectinputVille">Ville</label>
+                                                                                                            <input type="text" disabled id="projectinputVille" class="form-control" value="<?= $valueR['ville'] ?>">
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>

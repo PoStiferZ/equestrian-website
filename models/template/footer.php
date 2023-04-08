@@ -15,6 +15,7 @@
 <?php
 } ?>
 
+
 <script src="../../app-assets/vendors/js/charts/chart.min.js"></script>
 <script src="../../app-assets/vendors/js/charts/raphael-min.js"></script>
 <script src="../../app-assets/vendors/js/charts/morris.min.js"></script>

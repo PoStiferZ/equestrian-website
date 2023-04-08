@@ -284,7 +284,7 @@ require('config.php'); ?>
                                                                         </div>
                                                                         <div id="edit-idRec-group" class="form-group">
                                                                             <!-- <label class="control-label" for="editIdRecurrence">ID Récurrence</label> -->
-                                                                            <input type="text" class="form-control" id="editIdRecurrenceRec" name="editIdRecurrenceRec">
+                                                                            <input type="text" class="form-control" id="editIdRecurrenceRec" name="editIdRecurrenceRec" hidden>
                                                                         </div>
                                                                         <div id="edit-startdate-group" class="form-group">
                                                                             <label class="control-label" for="editStartDate">Date début</label>

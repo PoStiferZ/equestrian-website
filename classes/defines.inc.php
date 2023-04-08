@@ -22,12 +22,13 @@ require("responsable.class.php");
 require("typepension.class.php");
 require("cours.class.php");
 require("inscriptionCours.class.php");
+require("contact.class.php");
 
 
 
 
 
-$oCavalier = new Cavalier("", "", "", "", "", "", "", "", 0, "",);
+$oCavalier = new Cavalier("", "", "", "", "", "", "", "", 0, "");
 $oCheval = new Cheval("", "", "", 0, 0);
 $oRobe = new Robe(0, "");
 $oPension = new Pension(0, 0, 0, "", "");
@@ -37,3 +38,4 @@ $oResponsable = new Responsable("", "", "", "", "", "", "", "", "", "");
 $oTypePension = new TypePension("");
 $oCours = new Cours(0, "", "", "", "", "", 0);
 $oInscriptionCours = new InscriptionCours(0, 0, 0);
+$oContact = new Contact("", "", "", "", "");

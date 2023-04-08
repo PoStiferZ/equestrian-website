@@ -226,10 +226,20 @@ if ($title != 'cours') {
                                                                                     <input type="text" id="projectinput3" class="form-control" placeholder="Code Postal" name="cp">
                                                                                 </div>
                                                                             </div>
+                                                                            <!-- <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="projectinputVille">Ville</label>
+                                                                                    <input type="text" id="projectinputVille" class="form-control" placeholder="Ville" name="ville">
+
+                                                                                    <input type="text" id="ville" placeholder="Entrez une ville">
+                                                                                    <ul id="suggestions"></ul>
+
+                                                                                </div>
+                                                                            </div> -->
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="projectinput3">Ville</label>
-                                                                                    <input type="text" id="projectinput3" class="form-control" placeholder="Ville" name="ville">
+                                                                                    <input type="text" id="ville" class="form-control">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -262,6 +272,16 @@ if ($title != 'cours') {
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
 
+
+<script>
+    $(document).ready(function() {
+        var cities = ["Paris", "Marseille", "Lyon"];
+
+        $('#ville').autocomplete({
+            source: cities
+        });
+    });
+</script>
 <?php
 require("../template/footer.php");
 ?>

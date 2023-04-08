@@ -18,6 +18,7 @@ if (isset($_POST['close'])) {
             }
         }
         $cavCreate = $oCavalier->create($_POST['nom'], $_POST['prenom'], $_POST['dna'], $_POST['mail'], $_POST['telephone'], $_FILES['photo'], $_POST['nvGalop'], $_POST['licence'], $LastID);
+
         header("Location: index.php");
     }
     if (isset($_GET['id'])) {

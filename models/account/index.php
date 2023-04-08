@@ -71,6 +71,19 @@ if ($_SESSION['admin'] == 1) {
                                                         </div>
 
                                                     </div>
+                                                    <?php
+                                                    if ($_SESSION['admin'] == 1) {
+                                                    ?>
+                                                        <label class="btn btn-sm btn-warning ml-50 mb-50 mb-sm-0 cursor-pointer">Session Admin</label>
+
+                                                    <?
+                                                    } else {
+                                                    ?>
+                                                        <label class="btn btn-sm btn-warning ml-50 mb-50 mb-sm-0 cursor-pointer">Session Utilisateur</label>
+
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
