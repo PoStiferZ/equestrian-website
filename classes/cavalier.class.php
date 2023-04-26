@@ -196,10 +196,22 @@ class Cavalier extends Personne
         }
     }
 
-    public function findAll()
+    public function findAll($filter_galop, $filter_major)
     {
         global $db;
         $request = "SELECT * FROM personne WHERE actif='1' AND ville IS NULL";
+
+        if (!empty($filter_galop)) {
+            $request .= " AND niveauGalop IN ('" . implode("','", $filter_galop) . "')";
+        }
+        if (!empty($filter_major)) {
+            if ($filter_major == "true") {
+                $request .= " AND DATEDIFF(CURDATE(), dateNaissance) >= 6570";
+            } else if ($filter_major == "false") {
+                $request .= " AND DATEDIFF(CURDATE(), dateNaissance) < 6570";
+            }
+        }
+
         $sql = $db->prepare($request);
         try {
             $sql->execute();

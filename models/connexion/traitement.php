@@ -11,7 +11,9 @@ if (isset($_POST['close'])) {
 
 
     // Get all users
-    $dataUsers = $oCavalier->findAll();
+    $filter_galop = ["1", "2", "3", "4", "5", "6", "7"];
+    $filter_major = null;
+    $dataUsers = $oCavalier->findAll($filter_galop, $filter_major);
     $userConnexion = false;
     foreach ($dataUsers as $dataUser) {
         if ($dataUser['mail'] == $email && $dataUser['mdp'] == $password) {

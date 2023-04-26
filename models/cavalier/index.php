@@ -32,6 +32,64 @@ if ($title != 'cours') {
         </div>
         <div class=" content-body"><!-- configuration table -->
             <section id="configuration">
+                <div class="users-list-filter px-1">
+                    <form method="POST" action="index.php">
+                        <div class="row border border-light rounded py-2 mb-2">
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <label for="users-list-major">Majorité</label>
+                                <fieldset class="form-group">
+                                    <select class="form-control" id="users-list-major" name="filter_major" multiple>
+                                        <option value="true" <?php if (isset($_POST['filter_major']) && $_POST['filter_major'] == "true") echo 'selected'; ?>>Oui</option>
+                                        <option value="false" <?php if (isset($_POST['filter_major']) && $_POST['filter_major'] == "false") echo 'selected'; ?>>Non</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <label for="users-list-status">Galop</label>
+                                <fieldset class="form-group">
+                                    <select class="form-control" id="users-list-status" name="filter_galop[]" multiple>
+                                        <option value="1" <?php if (isset($_POST['filter_galop']) && in_array('1', $_POST['filter_galop'])) echo 'selected'; ?>>1</option>
+                                        <option value="2" <?php if (isset($_POST['filter_galop']) && in_array('2', $_POST['filter_galop'])) echo 'selected'; ?>>2</option>
+                                        <option value="3" <?php if (isset($_POST['filter_galop']) && in_array('3', $_POST['filter_galop'])) echo 'selected'; ?>>3</option>
+                                        <option value="4" <?php if (isset($_POST['filter_galop']) && in_array('4', $_POST['filter_galop'])) echo 'selected'; ?>>4</option>
+                                        <option value="5" <?php if (isset($_POST['filter_galop']) && in_array('5', $_POST['filter_galop'])) echo 'selected'; ?>>5</option>
+                                        <option value="6" <?php if (isset($_POST['filter_galop']) && in_array('6', $_POST['filter_galop'])) echo 'selected'; ?>>6</option>
+                                        <option value="7" <?php if (isset($_POST['filter_galop']) && in_array('7', $_POST['filter_galop'])) echo 'selected'; ?>>7</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+                            <script>
+                                $(document).ready(function() {
+                                    $('#users-list-status').select2({
+                                        maximumSelectionLength: 6,
+                                        language: {
+                                            maximumSelected: function(e) {
+                                                return "Vous ne pouvez sélectionner que 6 éléments";
+                                            },
+                                        },
+                                    });
+                                });
+                                $(document).ready(function() {
+                                    $('#users-list-major').select2({
+                                        maximumSelectionLength: 1,
+                                        language: {
+                                            maximumSelected: function(e) {
+                                                return "Vous ne pouvez sélectionner qu'un élément";
+                                            },
+                                        },
+                                    });
+                                });
+                            </script>
+                            <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+                            <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center">
+                                <button class="btn btn-block btn-primary glow" type="submit">Filtrer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
