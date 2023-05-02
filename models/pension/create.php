@@ -48,26 +48,45 @@ if ($title != 'cours') {
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="ft-user"></i>Informations du pensionnaire</h4>
                                             <div class="row">
+
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput2">Cavalier</label>
-                                                        <?php
-                                                        $personne = $oCavalier->findAll();
-                                                        ?>
-                                                        <select name="idPers" class="form-control">
-                                                            <?php foreach ($personne as $value2) {
-                                                                $idPers = $value2['ID_Personne'];
-                                                            ?>
+                                                        <label for="projectinputCavalier">Cavalier</label>
+                                                        <input type="text" id="cavalier" class="form-control" placeholder="Cavalier" name="cavalier">
+                                                        <input type="hidden" id="idCavalier" name="idCavalier">
+                                                        <script>
+                                                            $(document).ready(function() {
+                                                                $.getJSON('personnes.json', function(data) {
+                                                                    var cavaliers = [];
+                                                                    $.each(data, function(index, cavalier) {
+                                                                        cavaliers.push({
+                                                                            value: cavalier.value,
+                                                                            id: cavalier.id
+                                                                        });
+                                                                    });
 
-                                                            <?php
-                                                                echo "<option " . " value='" . $value2['ID_Personne'] . "' >" . $value2['nom'] . " " . $value2['prenom'] . "</option>";
+                                                                    $('#cavalier').autocomplete({
+                                                                        source: cavaliers,
+                                                                        minLength: 2,
+                                                                        select: function(event, ui) {
+                                                                            var selectedCavalier = ui.item.value;
+                                                                            var selectedCavalierId = ui.item.id;
+                                                                            $('#idCavalier').val(selectedCavalierId);
+                                                                        }
+                                                                    });
+                                                                });
+                                                            });
+                                                        </script>
+                                                        <style>
+                                                            .ui-autocomplete {
+                                                                z-index: 9999;
                                                             }
-                                                            ?>
-
-
-                                                        </select>
+                                                        </style>
                                                     </div>
                                                 </div>
+
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="projectinput2">Cheval</label>
@@ -78,12 +97,10 @@ if ($title != 'cours') {
                                                             <?php foreach ($cheval as $value2) {
                                                                 $idChev = $value2['ID_Cheval'];
                                                             ?>
-
                                                             <?php
                                                                 echo "<option " . " value='" . $value2['ID_Cheval'] . "' >" . $value2['nom_Cheval'] . "</option>";
                                                             }
                                                             ?>
-
                                                         </select>
                                                     </div>
                                                 </div>
@@ -106,6 +123,9 @@ if ($title != 'cours') {
                                                         </select>
                                                     </div>
                                                 </div>
+
+
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="projectinput2">Tarif</label>
@@ -116,7 +136,6 @@ if ($title != 'cours') {
                                                             <?php foreach ($tarif as $value2) {
                                                                 $idTar = $value2['ID_TP'];
                                                             ?>
-
                                                             <?php
                                                                 echo "<option " . " value='" . $value2['ID_Tarif'] . "' >" . $value2['libelleTarif'] . "</option>";
                                                             }
@@ -159,12 +178,13 @@ if ($title != 'cours') {
     </div>
 </div>
 <!-- END: Content-->
-
-
 </div>
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <?php
 require("../template/footer.php");
 ?>

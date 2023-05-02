@@ -34,4 +34,5 @@ if (isset($_POST['close'])) {
     if (isset($_POST['back'])) {
         header("Location: index.php");
     }
+    
 }

@@ -255,8 +255,6 @@ if ($title != 'cours') {
                                                                                             });
                                                                                         });
                                                                                     </script>
-
-
                                                                                     <style>
                                                                                         .ui-autocomplete {
                                                                                             z-index: 9999;
@@ -270,8 +268,6 @@ if ($title != 'cours') {
                                                                                     <input type="text" id="codePostal" class="form-control" placeholder="Code Postal" name="cp">
                                                                                 </div>
                                                                             </div>
-
-
                                                                         </div>
                                                                     </div>
                                                                 </div>

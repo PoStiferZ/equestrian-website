@@ -52,18 +52,18 @@ if ($title != 'cours') {
                                         <form class="form" method="POST" action="traitement.php" enctype="multipart/form-data">
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-user"></i>Informations du cheval</h4>
-                                                <input type="hidden" id="projectinput1" class="form-control" name="ID_Cheval" value="<?= $value['ID_Cheval'] ?>">
+                                                <input type="hidden" id="projectinput1" class="form-control" name="ID_Cheval" value="<?= $value['id'] ?>">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1">Nom</label>
-                                                            <input type="text" id="projectinput1" class="form-control" name="nomC" value="<?= $value['nom_Cheval'] ?>">
+                                                            <input type="text" id="projectinput1" class="form-control" name="nomC" value="<?= $value['nom'] ?>">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1">Date de naissance</label>
-                                                            <input type="date" id="projectinput1" class="form-control" name="dnaC" value="<?= $value['DateNaissance_Cheval'] ?>">
+                                                            <input type="date" id="projectinput1" class="form-control" name="dnaC" value="<?= $value['naissance'] ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -71,7 +71,7 @@ if ($title != 'cours') {
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1">SIR</label>
-                                                            <input type="text" id="projectinput1" class="form-control" name="sir" value="<?= $value['SIR'] ?>">
+                                                            <input type="text" id="projectinput1" class="form-control" name="sir" value="<?= $value['sir'] ?>">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">

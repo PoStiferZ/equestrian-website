@@ -69,7 +69,6 @@ if ($title != 'cours') {
 
                                                             <?php $date = date_create($value['dateContact']) ?>
                                                             <p class="td-p1-nom"><?= date_format($date, "d/m/Y") ?></p>
-
                                                         </td>
 
                                                         <td>

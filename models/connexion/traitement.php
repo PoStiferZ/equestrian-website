@@ -4,11 +4,9 @@ if (isset($_POST['close'])) {
     header("Location: ../../index.php");
 } else if (isset($_POST['email']) && isset($_POST['password'])) {
     $_SESSION['email'] =  strtolower(htmlspecialchars($_POST['email']));
-    $password = htmlspecialchars($_POST['password']);
+    $password = $_POST['password'];
 
     $email = $_SESSION['email'];
-
-
 
     // Get all users
     $filter_galop = ["1", "2", "3", "4", "5", "6", "7"];

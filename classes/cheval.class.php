@@ -160,7 +160,7 @@ class Cheval
         }
 
 
-        $request = "INSERT INTO cheval (nom_Cheval, DateNaissance_Cheval, photo, SIR, ID_Robe, actif) VALUES(:nomC, :dnaC, :photo, :sir, :idRobe, 1)";
+        $request = "INSERT INTO cheval (nom, naissance, photo, sir, idRobe, actif) VALUES(:nomC, :dnaC, :photo, :sir, :idRobe, 1)";
         $sql = $db->prepare($request);
         $sql->bindValue(':nomC', $nomC, PDO::PARAM_STR);
         $sql->bindValue(':dnaC', $dnaC, PDO::PARAM_STR);
@@ -178,10 +178,10 @@ class Cheval
     {
         global $db;
         $request =
-            "SELECT ID_Cheval, nom_Cheval, DateNaissance_Cheval, photo, SIR, libelleRobe
+            "SELECT C.id, C.nom, naissance, photo, sir, libelleRobe
         FROM cheval C
-        INNER JOIN robe R ON C.ID_Robe = R.ID_Robe
-        WHERE C.actif='1'";
+        INNER JOIN robe R ON C.idRobe = R.ID_Robe
+        WHERE C.actif=1";
         $sql = $db->prepare($request);
         try {
             $sql->execute();
@@ -195,7 +195,7 @@ class Cheval
     {
         global $db;
         $request =
-            "SELECT * FROM cheval WHERE actif='1' AND ID_Cheval = :idC";
+            "SELECT * FROM cheval WHERE actif='1' AND id = :idC";
         $sql = $db->prepare($request);
         $sql->bindValue(':idC', $idC, PDO::PARAM_INT);
         try {
@@ -233,14 +233,14 @@ class Cheval
             $dir_name = "false";
         }
 
-        $request = "UPDATE cheval SET nom_Cheval = :nomC, DateNaissance_Cheval = :dnaC, photo = :photo, SIR = :sir, ID_Robe = :idRobe WHERE ID_Cheval = :idC";
+        $request = "UPDATE cheval SET nom = :nomC, naissance = :dnaC, photo = :photo, sir = :sir, idRobe = :idRobe WHERE id = :idC";
         $sql = $db->prepare($request);
         $sql->bindValue(':idC', $idC, PDO::PARAM_INT);
         $sql->bindValue(':nomC', $nomC, PDO::PARAM_STR);
         $sql->bindValue(':dnaC', $dnaC, PDO::PARAM_STR);
         $sql->bindValue(':sir', $sir, PDO::PARAM_INT);
         if ($dir_name == "false") {
-            $request2 = "SELECT photo FROM cheval WHERE actif='1' AND ID_Cheval =:id";
+            $request2 = "SELECT photo FROM cheval WHERE actif='1' AND id =:id";
             $sql2 = $db->prepare($request2);
             $sql2->bindValue(':id', $idC, PDO::PARAM_INT);
             $sql2->execute();
@@ -262,7 +262,7 @@ class Cheval
     public function deleteById($idC)
     {
         global $db;
-        $request = "UPDATE cheval SET actif = 0 WHERE ID_Cheval = :idC";
+        $request = "UPDATE cheval SET actif = 0 WHERE id = :idC";
         $sql = $db->prepare($request);
         $sql->bindValue(':idC', $idC, PDO::PARAM_INT);
         try {

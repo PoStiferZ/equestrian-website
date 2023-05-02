@@ -68,21 +68,21 @@ if ($title != 'cours') {
                                                             <img src='../../assets/uploadimg/<?= $value['photo'] ?>' class="listPhoto">
                                                         </td>
                                                         <td>
-                                                            <p class="td-p1-nom"><?= $value['nom_Cheval'] ?></p>
+                                                            <p class="td-p1-nom"><?= $value['nom'] ?></p>
                                                         </td>
-                                                        <td><?php $date = date_create($value['DateNaissance_Cheval']);
+                                                        <td><?php $date = date_create($value['naissance']);
                                                             echo date_format($date, "d/m/Y") ?></td>
                                                         <td>
-                                                            <p class="td-p1-nom"><?= $value['SIR'] ?></p>
+                                                            <p class="td-p1-nom"><?= $value['sir'] ?></p>
                                                         </td>
                                                         <td>
                                                             <p class="td-p1-nom"><?= $value['libelleRobe'] ?></p>
                                                         </td>
                                                         <td>
-                                                            <a href="update.php?id=<?= $value['ID_Cheval'] ?>"><i class="la la-pencil"></i></a>
+                                                            <a href="update.php?id=<?= $value['id'] ?>"><i class="la la-pencil"></i></a>
                                                         </td>
                                                         <td>
-                                                            <a href="index.php?DeleteById=<?= $value['ID_Cheval'] ?>"><i class="la la-close"></i></a>
+                                                            <a href="index.php?DeleteById=<?= $value['id'] ?>"><i class="la la-close"></i></a>
 
                                                         </td>
                                                     <?php

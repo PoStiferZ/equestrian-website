@@ -165,7 +165,6 @@ class Cavalier extends Personne
             echo "Mauvaise extension ou taille trop grande";
         }
 
-
         $request = "INSERT INTO personne (nom, prenom, dateNaissance, mail, telephone, photo, niveauGalop, numeroLicence, ID_Responsable, actif, mdp) VALUES(:nom, :prenom, :dateNaissance, :mail, :telephone, :photo, :niveauGalop, :numeroLicence, :idResp, 1, :mdp)";
         $sql = $db->prepare($request);
         $sql->bindValue(':nom', $nom, PDO::PARAM_STR);

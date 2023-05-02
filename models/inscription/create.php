@@ -52,15 +52,37 @@ if ($title != 'cours') {
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput2">Cavalier</label>
-                                                        <?php $personne = $oInscription->optionPersonne(); ?>
-                                                        <select name="idPersonne" class="form-control">
-                                                            <?php
-                                                            foreach ($personne as $value) {
-                                                                echo "<option value='" . $value['ID_Personne'] . "' >" . $value['nom'] . " " . $value['prenom'] . "</option>";
+                                                        <label for="projectinputCavalier">Cavalier</label>
+                                                        <input type="text" id="cavalier" class="form-control" placeholder="Cavalier" name="cavalier">
+                                                        <input type="hidden" id="idCavalier" name="idCavalier">
+                                                        <script>
+                                                            $(document).ready(function() {
+                                                                $.getJSON('personnes.json', function(data) {
+                                                                    var cavaliers = [];
+                                                                    $.each(data, function(index, cavalier) {
+                                                                        cavaliers.push({
+                                                                            value: cavalier.value,
+                                                                            id: cavalier.id
+                                                                        });
+                                                                    });
+
+                                                                    $('#cavalier').autocomplete({
+                                                                        source: cavaliers,
+                                                                        minLength: 2,
+                                                                        select: function(event, ui) {
+                                                                            var selectedCavalier = ui.item.value;
+                                                                            var selectedCavalierId = ui.item.id;
+                                                                            $('#idCavalier').val(selectedCavalierId);
+                                                                        }
+                                                                    });
+                                                                });
+                                                            });
+                                                        </script>
+                                                        <style>
+                                                            .ui-autocomplete {
+                                                                z-index: 9999;
                                                             }
-                                                            ?>
-                                                        </select>
+                                                        </style>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

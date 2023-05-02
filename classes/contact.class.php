@@ -41,7 +41,7 @@ class Contact
     public function findAll()
     {
         global $db;
-        $request = "SELECT * FROM contact";
+        $request = "SELECT * FROM contact WHERE actif = 1";
         $sql = $db->prepare($request);
         try {
             $sql->execute();
@@ -51,40 +51,13 @@ class Contact
         }
     }
 
-    public function findById($idR)
-    {
-        global $db;
-        $request = "SELECT * FROM robe WHERE actif='1' AND ID_Robe =:idR";
-        $sql = $db->prepare($request);
-        $sql->bindValue(':idR', $idR, PDO::PARAM_INT);
-        try {
-            $sql->execute();
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            return $this->errmessage . $e->getMessage();
-        }
-    }
 
-    public function updateById($idR, $libR)
+    public function deleteById($id)
     {
         global $db;
-        $request = "UPDATE robe SET libelleRobe = :libR WHERE ID_Robe = :idR";
+        $request = "UPDATE contact SET actif = 0 WHERE id = :id";
         $sql = $db->prepare($request);
-        $sql->bindValue(':idR', $idR, PDO::PARAM_INT);
-        $sql->bindValue(':libR', $libR, PDO::PARAM_STR);
-        try {
-            return $sql->execute();
-        } catch (PDOException $e) {
-            return $this->errmessage . $e->getMessage();
-        }
-    }
-
-    public function deleteById($idR)
-    {
-        global $db;
-        $request = "UPDATE robe SET actif = 0 WHERE ID_Robe = :idR";
-        $sql = $db->prepare($request);
-        $sql->bindValue(':idR', $idR, PDO::PARAM_INT);
+        $sql->bindValue(':id', $id, PDO::PARAM_INT);
         try {
             return $sql->execute();
         } catch (PDOException $e) {

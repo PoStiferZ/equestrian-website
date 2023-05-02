@@ -4,6 +4,7 @@ require('../../classes/defines.inc.php');
 if (isset($_POST['close'])) {
     header("Location: index.php");
 } else {
+
     $pensionFind = $oPension->findAll();
 
     if (isset($_POST['submit'])) {
@@ -34,4 +35,23 @@ if (isset($_POST['close'])) {
     if (isset($_POST['back'])) {
         header("Location: index.php");
     }
+
+    // Définition de l'en-tête SSE
+
+    header('Cache-Control: no-cache');
+
+
+    $stmt = $db->query("SELECT * FROM personne");
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $cavaliers = [];
+
+    foreach ($data as $personne) {
+        $value = $personne['nom'] . ' ' . $personne['prenom'];
+        $cavaliers[] = [
+            'value' => $value,
+            'id' => $personne['ID_Personne']
+        ];
+    }
+
+    file_put_contents('personnes.json', json_encode($cavaliers));
 }

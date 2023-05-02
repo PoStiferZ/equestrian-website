@@ -1,6 +1,8 @@
 <?php
 require('../../classes/defines.inc.php');
 
+
+/* Création */
 if (isset($_POST['send'])) {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -12,4 +14,12 @@ if (isset($_POST['send'])) {
     $oContact->create($nom, $prenom, $mail, $sujet, $message, $dateContact);
     header("Location: ../../index.php");
 }
+
+/* Récupération des données */
 $data = $oContact->findAll();
+
+/* Suppression */
+if (isset($_GET['DeleteById'])) {
+    $oContact->deleteById($_GET['DeleteById']);
+    header("Location: index.php");
+}

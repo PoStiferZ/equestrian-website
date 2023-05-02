@@ -56,32 +56,37 @@ if ($title != 'cours') {
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1">Cavalier</label>
-                                                            <?php
-                                                            $findPens = $oPension->findByIdPension($value['ID_Pension']);
-                                                            $personne = $oCavalier->findAll();
+                                                            <label for="projectinputCavalier">Cavalier</label>
+                                                            <input type="text" id="cavalier" class="form-control" placeholder="Cavalier" name="cavalier">
+                                                            <input type="hidden" id="idCavalier" name="idCavalier">
+                                                            <script>
+                                                                $(document).ready(function() {
+                                                                    $.getJSON('personnes.json', function(data) {
+                                                                        var cavaliers = [];
+                                                                        $.each(data, function(index, cavalier) {
+                                                                            cavaliers.push({
+                                                                                value: cavalier.value,
+                                                                                id: cavalier.id
+                                                                            });
+                                                                        });
 
-                                                            foreach ($findPens as $idPens) {
-                                                                $findID0 = $oPension->findByIdSigne($idPens['ID_Personne']);
-                                                                foreach ($findID0 as $value0) {
-                                                            ?>
-                                                                    <!--                                                                     <input type="text" name="idPens" class="inputID" value="<?= $value['ID_Pension'] ?>">
- -->
-                                                                    <select name="idPers" class="form-control">
-                                                                        <?php foreach ($personne as $value2) {
-                                                                            $idPers = $value0['ID_Personne'];
-                                                                        ?>
-
-                                                                <?php if ($idPers == $value2['ID_Personne']) {
-                                                                                $selected = "selected=''";
-                                                                            } else {
-                                                                                $selected = "";
+                                                                        $('#cavalier').autocomplete({
+                                                                            source: cavaliers,
+                                                                            minLength: 2,
+                                                                            select: function(event, ui) {
+                                                                                var selectedCavalier = ui.item.value;
+                                                                                var selectedCavalierId = ui.item.id;
+                                                                                $('#idCavalier').val(selectedCavalierId);
                                                                             }
-                                                                            echo "<option " . $selected . " value='" . $value2['ID_Personne'] . "' >" . $value2['nom'] . " " . $value2['prenom'] . "</option>";
-                                                                        }
-                                                                    }
-                                                                } ?>
-                                                                    </select>
+                                                                        });
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <style>
+                                                                .ui-autocomplete {
+                                                                    z-index: 9999;
+                                                                }
+                                                            </style>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">

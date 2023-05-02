@@ -108,6 +108,9 @@ Author: Kenzo Fahem
     <script src="<?= $dir ?>public-home/js/3056-js-modernizr-2.8.3.min.js"></script>
 
 
+    <script src="../../app-assets/vendors/js/vendors-jquery.min.js"></script>
+    <script src="../../app-assets/vendors/js/vendors.min.js"></script>
+
 </head>
 <!-- END: Head-->
 

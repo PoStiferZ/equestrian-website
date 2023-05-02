@@ -38,7 +38,7 @@ if ($title != 'cours') {
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-card-center">Modifier un cheval</h4>
+                                    <h4 class="card-title" id="basic-layout-card-center">Modifier une inscription</h4>
                                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
@@ -51,7 +51,7 @@ if ($title != 'cours') {
                                     <div class="card-body">
                                         <form class="form" method="POST" action="traitement.php" enctype="multipart/form-data">
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-user"></i>Informations du cheval</h4>
+                                                <h4 class="form-section"><i class="ft-user"></i>Informations de l'inscription</h4>
                                                 <input type="hidden" id="projectinput1" class="form-control" name="idInscription" value="<?= $value['ID_Inscription'] ?>">
                                                 <div class="row">
                                                     <div class="col-md-6">

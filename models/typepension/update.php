@@ -38,7 +38,7 @@ if ($title != 'cours') {
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-card-center">Modifier une robe</h4>
+                                    <h4 class="card-title" id="basic-layout-card-center">Modifier un type de pension</h4>
                                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">

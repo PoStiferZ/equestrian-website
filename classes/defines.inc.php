@@ -11,6 +11,7 @@ try {
 } catch (PDOException $e) {
     //throw $th;
 }
+
 require("personne.class.php");
 require("cavalier.class.php");
 require("cheval.class.php");

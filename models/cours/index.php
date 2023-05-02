@@ -75,6 +75,11 @@ require('config.php'); ?>
                                     <div class="card-body card-dashboard">
                                         <div class="modal fade" id="addeventmodal" tabindex="-1" role="dialog">
                                             <div class="modal-dialog">
+                                                <style>
+                                                    .modal-dialog {
+                                                        margin: 25rem auto;
+                                                    }
+                                                </style>
                                                 <div class="modal-content">
 
                                                     <div class="modal-header">
