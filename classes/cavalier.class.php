@@ -180,7 +180,6 @@ class Cavalier extends Personne
             PDO::PARAM_STR
         );
 
-
         $sql->bindValue(':numeroLicence', $licence, PDO::PARAM_STR);
         if ($lastID == 0) {
             $sql->bindValue(':idResp', NULL, PDO::PARAM_INT);
@@ -227,7 +226,7 @@ class Cavalier extends Personne
         $request = "SELECT RESP.nom, RESP.prenom, RESP.dateNaissance, RESP.mail, RESP.telephone, RESP.rue, RESP.complementAdresse, RESP.codePostal, RESP.ville
         FROM personne CAV 
         LEFT OUTER JOIN personne RESP
-        ON CAV.ID_Responsable = RESP.ID_Personne
+        ON CAV.ID_Responsable = RESP.idPersonne
         WHERE CAV.ID_Responsable = :id";
         $sql = $db->prepare($request);
         $sql->bindValue(':id', $idResp, PDO::PARAM_INT);
@@ -243,7 +242,7 @@ class Cavalier extends Personne
     public function findById($id)
     {
         global $db;
-        $request = "SELECT * FROM personne WHERE actif='1' AND ID_Personne =:id";
+        $request = "SELECT * FROM personne WHERE actif='1' AND idPersonne =:id";
         $sql = $db->prepare($request);
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         try {
@@ -258,7 +257,7 @@ class Cavalier extends Personne
     {
         global $db;
         $check = false;
-        $request = "SELECT mdp FROM personne WHERE ID_Personne =:id";
+        $request = "SELECT mdp FROM personne WHERE idPersonne =:id";
         $sql = $db->prepare($request);
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         $sql->execute();
@@ -266,7 +265,7 @@ class Cavalier extends Personne
         foreach ($result as $pass) {
             if ($pass['mdp'] == $oldPassword) {
                 $check = true;
-                $request = "UPDATE personne SET mdp =:new WHERE ID_Personne = :id";
+                $request = "UPDATE personne SET mdp =:new WHERE idPersonne = :id";
                 $sql = $db->prepare($request);
                 $sql->bindValue(':id', $id, PDO::PARAM_INT);
                 $sql->bindValue(':new', $newPassword, PDO::PARAM_STR);
@@ -309,7 +308,7 @@ class Cavalier extends Personne
             $dir_name = "false";
         }
 
-        $request = "UPDATE personne SET nom =:nom, prenom =:prenom, dateNaissance =:dateNaissance, mail =:mail, telephone =:telephone, photo =:photo, niveauGalop =:niveauGalop, numeroLicence =:numeroLicence WHERE ID_Personne = :id";
+        $request = "UPDATE personne SET nom =:nom, prenom =:prenom, dateNaissance =:dateNaissance, mail =:mail, telephone =:telephone, photo =:photo, niveauGalop =:niveauGalop, numeroLicence =:numeroLicence WHERE idPersonne = :id";
         $sql = $db->prepare($request);
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
@@ -317,7 +316,7 @@ class Cavalier extends Personne
         $sql->bindValue(':dateNaissance', $dna, PDO::PARAM_STR);
         $sql->bindValue(':mail', $mail, PDO::PARAM_STR);
         if ($dir_name == "false") {
-            $request2 = "SELECT photo FROM personne WHERE actif='1' AND ID_Personne =:id";
+            $request2 = "SELECT photo FROM personne WHERE actif='1' AND idPersonne =:id";
             $sql2 = $db->prepare($request2);
             $sql2->bindValue(':id', $id, PDO::PARAM_INT);
             $sql2->execute();
@@ -341,7 +340,7 @@ class Cavalier extends Personne
     public function deleteById($id)
     {
         global $db;
-        $request = "UPDATE personne SET actif = 0 WHERE ID_Personne = :id";
+        $request = "UPDATE personne SET actif = 0 WHERE idPersonne = :id";
         $sql = $db->prepare($request);
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         try {

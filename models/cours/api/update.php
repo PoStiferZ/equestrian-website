@@ -2,7 +2,7 @@
 include("../config.php");
 
 
-if (isset($_POST['ID_Recurrence'])) {
+if (isset($_POST['idRecurrence'])) {
 
     //collect data
     $error      = null;
@@ -13,7 +13,7 @@ if (isset($_POST['ID_Recurrence'])) {
     $title      = isset($_POST['title']) ? $_POST['title'] : '';
     $color      = isset($_POST['color']) ? $_POST['color'] : '';
     $text_color = isset($_POST['text_color']) ? $_POST['text_color'] : '';
-    $ID_Recurrence = isset($_POST['ID_Recurrence']) ? $_POST['ID_Recurrence'] : '';
+    $idRecurrence = isset($_POST['idRecurrence']) ? $_POST['idRecurrence'] : '';
 
 
     //if there are no errors, carry on
@@ -37,7 +37,7 @@ if (isset($_POST['ID_Recurrence'])) {
 
 
         //set the where condition ie where id = 2
-        $where = ['ID_Recurrence' => $_POST['ID_Recurrence']];
+        $where = ['idRecurrence' => $_POST['idRecurrence']];
 
         //update database
         $db->update('events', $update, $where);
@@ -82,7 +82,7 @@ if (isset($_POST['ID_Recurrence'])) {
 
         //set core update array
         $update = [
-            'start_event' => date('Y-m-d H:i:s', strtotime($_POST['start'])),
+            'startEvent' => date('Y-m-d H:i:s', strtotime($_POST['start'])),
             'end_event' => date('Y-m-d H:i:s', strtotime($_POST['end']))
         ];
 

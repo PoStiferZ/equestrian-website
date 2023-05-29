@@ -51,7 +51,7 @@ if ($title != 'cours') {
                                     <div class="card-body">
 
                                         <form class="form" method="POST" action="traitement.php" enctype="multipart/form-data">
-                                            <input type="hidden" name="ID_Personne" class="inputID" value="<?= $cavalier['ID_Personne'] ?>">
+                                            <input type="hidden" name="idPersonne" class="inputID" value="<?= $cavalier['idPersonne'] ?>">
 
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-user"></i>Informations personnelles</h4>

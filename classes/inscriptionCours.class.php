@@ -77,32 +77,12 @@ class InscriptionCours
         return $this;
     }
 
-    /* public function create($idPersonne, $idCours)
-    {
-        global $db;
-        $request2 = "SELECT id FROM events WHERE ID_Recurrence = :idCours";
-        $sql2 = $db->prepare($request2);
-        $sql2->bindValue(':idCours', $idCours, PDO::PARAM_INT);
-        $sql2->execute();
-        $idCours = $sql2->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($idCours as $unCours) {
-            $request = "INSERT INTO inscription_cours (id_personne, id_cours, presence) VALUES (:id_personne, :id_cours, 1);";
-            $sql = $db->prepare($request);
-            $sql->bindValue(':id_personne', $idPersonne, PDO::PARAM_INT);
-            $sql->bindValue(':id_cours', $unCours['id'], PDO::PARAM_INT);
-        }
-        try {
-            return $sql->execute();
-        } catch (PDOException $e) {
-            return $this->errmessage . $e->getMessage();
-        }
-    } */
 
     public function create($idPersonne, $idCours)
     {
         global $db;
-        $request2 = "SELECT id FROM events WHERE ID_Recurrence = :idCours";
+        $request2 = "SELECT id FROM events WHERE idRecurrence = :idCours";
         $sql2 = $db->prepare($request2);
         $sql2->bindValue(':idCours', $idCours, PDO::PARAM_INT);
         $sql2->execute();
@@ -110,10 +90,10 @@ class InscriptionCours
 
         $success = true;
         foreach ($idCours as $unCours) {
-            $request = "INSERT INTO inscription_cours (id_personne, id_cours, presence) VALUES (:id_personne, :id_cours, 1);";
+            $request = "INSERT INTO inscription_cours (idP, idC, presence) VALUES (:idP, :idC, 1);";
             $sql = $db->prepare($request);
-            $sql->bindValue(':id_personne', $idPersonne, PDO::PARAM_INT);
-            $sql->bindValue(':id_cours', $unCours['id'], PDO::PARAM_INT);
+            $sql->bindValue(':idP', $idPersonne, PDO::PARAM_INT);
+            $sql->bindValue(':idC', $unCours['id'], PDO::PARAM_INT);
             try {
                 $success = $success && $sql->execute();
             } catch (PDOException $e) {
@@ -128,7 +108,7 @@ class InscriptionCours
     public function findAll()
     {
         global $db;
-        $request = "SELECT DISTINCT(ID_Recurrence), title FROM events";
+        $request = "SELECT DISTINCT(idRecurrence), title FROM events";
         $sql = $db->prepare($request);
         try {
             $sql->execute();
@@ -141,7 +121,7 @@ class InscriptionCours
     public function pagination($idPersonne)
     {
         global $db;
-        $request = "SELECT COUNT(*) FROM inscription_cours WHERE id_personne = :idPersonne";
+        $request = "SELECT COUNT(*) FROM inscription_cours WHERE idP = :idPersonne";
         $sql = $db->prepare($request);
         $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
         $sql->execute();
@@ -171,7 +151,7 @@ class InscriptionCours
     public function beMissing($idPersonne, $idCours)
     {
         global $db;
-        $request = "UPDATE inscription_cours SET presence = 0 WHERE id_personne = :idPersonne AND id_cours = :idCours";
+        $request = "UPDATE inscription_cours SET presence = 0 WHERE idP = :idPersonne AND idC = :idCours";
         $sql = $db->prepare($request);
         $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
         $sql->bindValue(':idCours', $idCours, PDO::PARAM_INT);
@@ -185,7 +165,7 @@ class InscriptionCours
     public function bePresent($idPersonne, $idCours)
     {
         global $db;
-        $request = "UPDATE inscription_cours SET presence = 1 WHERE id_personne = :idPersonne AND id_cours = :idCours";
+        $request = "UPDATE inscription_cours SET presence = 1 WHERE idP = :idPersonne AND idC = :idCours";
         $sql = $db->prepare($request);
         $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
         $sql->bindValue(':idCours', $idCours, PDO::PARAM_INT);

@@ -62,7 +62,7 @@ require("public-home/template/header.php");
                 $i++;
 
                 foreach ($pensionFind as $result) {
-                    if ($result['ID_Cheval'] == $value['ID_Cheval'] && $i < 4) {
+                    if ($result['ID_Cheval'] == $value['id'] && $i < 4) {
             ?>
                         <div class="col-lg-3 col-md-3 col-xs-3 col-mb-12">
                             <div class="service-layout1">
@@ -70,7 +70,7 @@ require("public-home/template/header.php");
                                     <img src="assets/uploadimg/<?= $value['photo'] ?>" alt="image">
                                 </div>
                                 <div class="content-box text-center">
-                                    <h3><a href="public-home/#"><?= $value['nom_Cheval'] ?></a></h3>
+                                    <h3><a href="public-home/#"><?= $value['nom'] ?></a></h3>
                                     <p></p>
                                 </div>
                             </div>

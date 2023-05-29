@@ -273,7 +273,7 @@ class Database
      */
     public function deleteByIdRec($table, $id)
     {
-        $stmt = $this->run("DELETE FROM $table WHERE ID_Recurrence = ?", [$id]);
+        $stmt = $this->run("DELETE FROM $table WHERE idRecurrence = ?", [$id]);
 
         return $stmt->rowCount();
     }

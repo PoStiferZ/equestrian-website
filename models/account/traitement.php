@@ -21,7 +21,7 @@ if (isset($_POST['update'])) {
     $_SESSION['telephone'] = $_POST['telephone'];
 
     $id = $_POST['id'];
-    $request = "SELECT photo FROM personne WHERE ID_Personne =:id";
+    $request = "SELECT photo FROM personne WHERE idPersonne =:id";
     $sql = $db->prepare($request);
     $sql->bindValue(':id', $id, PDO::PARAM_INT);
     $sql->execute();

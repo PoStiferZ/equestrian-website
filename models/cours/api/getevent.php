@@ -6,11 +6,11 @@ if (isset($_POST['id'])) {
     $data = [
         'id'        => $row->id,
         'title'     => $row->title,
-        'start'     => date('d-m-Y H:i:s', strtotime($row->start_event)),
+        'start'     => date('d-m-Y H:i:s', strtotime($row->startEvent)),
         'end'       => date('d-m-Y H:i:s', strtotime($row->end_event)),
         'color'     => $row->color,
         'textColor' => $row->text_color,
-        'ID_Recurrence' => $row->ID_Recurrence
+        'idRecurrence' => $row->idRecurrence
     ];
 
     echo json_encode($data);

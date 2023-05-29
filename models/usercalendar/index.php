@@ -89,14 +89,14 @@ require('traitement.php');
                                                                                 <p class="td-p1-nom"><?= $data['title'] ?></p>
                                                                             </td>
                                                                             <td>
-                                                                                <p class="td-p1-nom"><?php $date = date_create($data['start_event']);
+                                                                                <p class="td-p1-nom"><?php $date = date_create($data['startEvent']);
                                                                                                         setlocale(LC_TIME, 'fra');
                                                                                                         echo utf8_encode(ucfirst(strftime('%A, %e %B %Y', strtotime($date->format('Y-m-d')))));
 
                                                                                                         ?></p>
                                                                             </td>
                                                                             <td>
-                                                                                <p class="td-p1-nom"><?php $date = date_create($data['start_event']);
+                                                                                <p class="td-p1-nom"><?php $date = date_create($data['startEvent']);
                                                                                                         $date2 = date_create($data['end_event']);
                                                                                                         echo date_format($date, "H:i") . " - " . date_format($date2, "H:i");
                                                                                                         ?></p>
@@ -165,16 +165,19 @@ require('traitement.php');
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- S'INSCRIRE à UN COURS - START -->
                                         <div class="tab-pane fade" id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
                                             <form action="index.php" method="POST">
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-group">
+                                                            <!-- ON Récupère l'id de session de l'utilisateur -->
                                                             <input type="text" name="idPersonne" value="<?= $_SESSION['id']; ?>" hidden>
                                                             <label>Cours</label>
                                                             <select name="idCours" class="form-control">
+                                                                <!-- On récupère le titre et l'id de recurrence du cours -->
                                                                 <?php foreach ($allDataInscriptionCours as $value) {
-                                                                    echo "<option " . " value='" . $value['ID_Recurrence'] . "' >" . $value['title'] . "</option>";
+                                                                    echo "<option " . " value='" . $value['idRecurrence'] . "' >" . $value['title'] . "</option>";
                                                                 }
                                                                 ?>
                                                             </select>
@@ -182,12 +185,12 @@ require('traitement.php');
                                                     </div>
 
                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-
                                                         <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0" name="newInscriptionCours">Sauvegarder</button>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
+                                        <!-- S'INSCRIRE à UN COURS - END -->
                                     </div>
                                 </div>
                             </div>

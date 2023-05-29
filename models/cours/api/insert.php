@@ -43,7 +43,7 @@ if (isset($_POST['title'])) {
                 //store
                 $insert = [
                     'title'       => $title,
-                    'start_event' => $start,
+                    'startEvent' => $start,
                     'end_event'   => $end,
                     'color'       => $color,
                     'text_color'  => $text_color
@@ -52,24 +52,24 @@ if (isset($_POST['title'])) {
                 $start = date('Y-m-d H:i:s', strtotime($start . ' + 7 days'));
                 $end = date('Y-m-d H:i:s', strtotime($end . ' + 7 days'));
 
-                $idRec = $db->run("SELECT LAST_INSERT_ID() AS 'idRec'")->fetch();
-                $ID_Recurrence = $idRec['idRec'];
+                $idRecurrence = $db->run("SELECT LAST_INSERT_ID() AS 'idRecurrence'")->fetch();
+                $idRecurrence = $idRecurrence['idRecurrence'];
 
 
-                $update['ID_Recurrence'] = $ID_Recurrence;
+                $update['idRecurrence'] = $idRecurrence;
                 //set the where condition ie where id = 2
-                $where = ['id' => $ID_Recurrence];
+                $where = ['id' => $idRecurrence];
                 //update database
                 $db->update('events', $update, $where);
             } else {
                 //store
                 $insert = [
                     'title'       => $title,
-                    'start_event' => $start,
+                    'startEvent' => $start,
                     'end_event'   => $end,
                     'color'       => $color,
                     'text_color'  => $text_color,
-                    'ID_Recurrence' => $ID_Recurrence
+                    'idRecurrence' => $idRecurrence
                 ];
                 $db->insert('events', $insert);
                 $start = date('Y-m-d H:i:s', strtotime($start . ' + 7 days'));

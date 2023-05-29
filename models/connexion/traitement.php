@@ -18,7 +18,7 @@ if (isset($_POST['close'])) {
             $userConnexion = true;
             // Start session
             session_start();
-            $_SESSION['id'] = $dataUser['ID_Personne'];
+            $_SESSION['id'] = $dataUser['idPersonne'];
 
             $_SESSION['nom'] = $dataUser['nom'];
             $_SESSION['prenom'] = $dataUser['prenom'];

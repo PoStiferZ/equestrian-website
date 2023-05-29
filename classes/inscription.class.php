@@ -124,7 +124,7 @@ class Inscription
         $request =
             "SELECT ID_Inscription, annee, CotisationFFE, CotisationCentre, nom, prenom
             FROM inscription I
-            INNER JOIN personne P ON I.ID_Personne = P.ID_Personne
+            INNER JOIN personne P ON I.idPersonne = P.idPersonne
             WHERE I.actif='1'";
         $sql = $db->prepare($request);
         try {
@@ -141,7 +141,7 @@ class Inscription
         $request =
             "SELECT ID_Inscription, annee, CotisationFFE, CotisationCentre, nom, prenom
             FROM inscription I
-            INNER JOIN personne P ON I.ID_Personne = P.ID_Personne
+            INNER JOIN personne P ON I.idPersonne = P.idPersonne
             WHERE I.actif='1' and ID_Inscription = :idInscription";
 
         $sql = $db->prepare($request);
@@ -157,7 +157,7 @@ class Inscription
     public function updateById($idInscription, $an, $cffe, $cc, $idPersonne)
     {
         global $db;
-        $request = "UPDATE inscription SET annee = :an, CotisationFFE = :cffe, CotisationCentre = :cc, ID_Personne = :idPersonne WHERE ID_Inscription = :idInscription";
+        $request = "UPDATE inscription SET annee = :an, CotisationFFE = :cffe, CotisationCentre = :cc, idPersonne = :idPersonne WHERE ID_Inscription = :idInscription";
         $sql = $db->prepare($request);
         $sql->bindValue(':idInscription', $idInscription, PDO::PARAM_INT);
         $sql->bindValue(':an', $an, PDO::PARAM_STR);
@@ -187,7 +187,7 @@ class Inscription
     public function optionPersonne()
     {
         global $db;
-        $request = "SELECT ID_Personne, nom, prenom FROM personne WHERE actif = 1";
+        $request = "SELECT idPersonne, nom, prenom FROM personne WHERE actif = 1";
         $sql = $db->prepare($request);
         $sql->execute();
         return $sql->fetchAll(PDO::FETCH_ASSOC);

@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     $('#editEndDateRec').val(data.end);
                     $('#editColorRec').val(data.color);
                     $('#editTextColorRec').val(data.textColor);
-                    $('#editIdRecurrenceRec').val(data.ID_Recurrence);
+                    $('#editIdRecurrenceRec').val(data.idRecurrence);
 
                     $('#editeventmodal').modal();
                 }
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     type: "POST",
                     data: {
                         id: arg.event.id,
-                        ID_Recurrence: $('#editIdRecurrenceRec').val()
+                        idRecurrence: $('#editIdRecurrenceRec').val()
                     },
                     cache: false,
                     async: true
@@ -132,10 +132,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 //refresh calendar
 
             });
-
-
-
-
             calendar.refetchEvents();
         }
     });
@@ -206,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var end = $('#editEndDate').val();
         var color = $('#editColor').val();
         var textColor = $('#editTextColor').val();
-        var ID_Recurrence = $('#ID_Recurrence').val();
+        var idRecurrence = $('#idRecurrence').val();
 
 
         // process the form
@@ -272,8 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var end = $('#editEndDateRec').val();
         var color = $('#editColorRec').val();
         var textColor = $('#editTextColorRec').val();
-        var ID_Recurrence = $('#editIdRecurrenceRec').val();
-
+        var idRecurrence = $('#editIdRecurrenceRec').val();
 
         // process the form
         $.ajax({
@@ -286,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 end: end,
                 color: color,
                 text_color: textColor,
-                ID_Recurrence: ID_Recurrence
+                idRecurrence: idRecurrence
             },
             dataType: 'json',
             encode: true
@@ -326,8 +321,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
-
-
-
-
-

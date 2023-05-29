@@ -49,7 +49,7 @@ if (isset($_POST['close'])) {
         $value = $personne['nom'] . ' ' . $personne['prenom'];
         $cavaliers[] = [
             'value' => $value,
-            'id' => $personne['ID_Personne']
+            'id' => $personne['idPersonne']
         ];
     }
 

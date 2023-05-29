@@ -35,7 +35,7 @@ if (isset($_POST['close'])) {
         $dataPension = $oPension->findByIDPersonne($_GET['id']);
     }
     if (isset($_POST['Update'])) {
-        $cavUpdate = $oCavalier->updateById($_POST['ID_Personne'], $_POST['nom'], $_POST['prenom'], $_POST['dna'], $_POST['mail'], $_POST['telephone'], $_FILES['photo'], $_POST['nvGalop'], $_POST['licence']);
+        $cavUpdate = $oCavalier->updateById($_POST['idPersonne'], $_POST['nom'], $_POST['prenom'], $_POST['dna'], $_POST['mail'], $_POST['telephone'], $_FILES['photo'], $_POST['nvGalop'], $_POST['licence']);
 
         header("Location: index.php");
     }

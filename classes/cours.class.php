@@ -182,13 +182,13 @@ class Cours
     public function findById($idPersonne, $limit, $offset)
     {
         global $db;
-        $request = "SELECT I.id_personne, I.presence, E.id, E.title, E.start_event, E.end_event, 
-        TIMESTAMPDIFF(HOUR, E.start_event, E.end_event) AS duree
+        $request = "SELECT I.idP, I.presence, E.id, E.title, E.startEvent, E.end_event, 
+        TIMESTAMPDIFF(HOUR, E.startEvent, E.end_event) AS duree
         FROM inscription_cours I 
-        INNER JOIN events E ON I.id_cours = E.id
-        WHERE id_personne = :idPersonne
-        AND E.start_event >= NOW()
-        ORDER BY E.start_event ASC
+        INNER JOIN events E ON I.idC = E.id
+        WHERE idP = :idPersonne
+        AND E.startEvent >= NOW()
+        ORDER BY E.startEvent ASC
         LIMIT :limite OFFSET :offset";
         $sql = $db->prepare($request);
         $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);

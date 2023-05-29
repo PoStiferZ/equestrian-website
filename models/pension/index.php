@@ -69,7 +69,7 @@ if ($title != 'cours') {
                                                             <p class="td-p1-nom"><?php
                                                                                     $findPens = $oPension->findByIdPension($value['ID_Pension']);
                                                                                     foreach ($findPens as $idPens) {
-                                                                                        $findID0 = $oPension->findByIdSigne($idPens['ID_Personne']);
+                                                                                        $findID0 = $oPension->findByIdSigne($idPens['idPersonne']);
                                                                                         foreach ($findID0 as $value0) {
                                                                                             $name = $value0['nom'] . " " . $value0['prenom'];
                                                                                         }
@@ -81,7 +81,7 @@ if ($title != 'cours') {
                                                             <p class="td-p1-nom"><?php
                                                                                     $findID3 = $oCheval->findById($value['ID_Cheval']);
                                                                                     foreach ($findID3 as $value3) {
-                                                                                        echo $value3['nom_Cheval'];
+                                                                                        echo $value3['nom'];
                                                                                     } ?></p>
                                                         </td>
                                                         <td>

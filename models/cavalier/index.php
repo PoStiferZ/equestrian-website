@@ -241,10 +241,10 @@ if ($title != 'cours') {
                                                             ?>
                                                         </td>
                                                         <td>
-                                                            <a href="update.php?id=<?= $value['ID_Personne'] ?>"><i class="la la-pencil"></i></a>
+                                                            <a href="update.php?id=<?= $value['idPersonne'] ?>"><i class="la la-pencil"></i></a>
                                                         </td>
                                                         <td>
-                                                            <a href="index.php?DeleteById=<?= $value['ID_Personne'] ?>"><i class="la la-close"></i></a>
+                                                            <a href="index.php?DeleteById=<?= $value['idPersonne'] ?>"><i class="la la-close"></i></a>
                                                         </td>
                                                     <?php
                                                 }

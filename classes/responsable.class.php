@@ -227,7 +227,7 @@ class Responsable extends Personne
     public function findById($id)
     {
         global $db;
-        $request = "SELECT * FROM personne WHERE actif='1' AND ID_Personne =:id";
+        $request = "SELECT * FROM personne WHERE actif='1' AND idPersonne =:id";
         $sql = $db->prepare($request);
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         try {
@@ -266,7 +266,7 @@ class Responsable extends Personne
             $dir_name = "false";
         }
 
-        $request = "UPDATE personne SET nom =:nom, prenom =:prenom, dateNaissance =:dateNaissance, mail =:mail, telephone =:telephone, photo =:photo, niveauGalop =:niveauGalop, numeroLicence =:numeroLicence WHERE ID_Personne = :id";
+        $request = "UPDATE personne SET nom =:nom, prenom =:prenom, dateNaissance =:dateNaissance, mail =:mail, telephone =:telephone, photo =:photo, niveauGalop =:niveauGalop, numeroLicence =:numeroLicence WHERE idPersonne = :id";
         $sql = $db->prepare($request);
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
@@ -274,7 +274,7 @@ class Responsable extends Personne
         $sql->bindValue(':dateNaissance', $dna, PDO::PARAM_STR);
         $sql->bindValue(':mail', $mail, PDO::PARAM_STR);
         if ($dir_name == "false") {
-            $request2 = "SELECT photo FROM personne WHERE actif='1' AND ID_Personne =:id";
+            $request2 = "SELECT photo FROM personne WHERE actif='1' AND idPersonne =:id";
             $sql2 = $db->prepare($request2);
             $sql2->bindValue(':id', $id, PDO::PARAM_INT);
             $sql2->execute();
@@ -298,7 +298,7 @@ class Responsable extends Personne
     public function deleteById($id)
     {
         global $db;
-        $request = "UPDATE personne SET actif = 0 WHERE ID_Personne = :id";
+        $request = "UPDATE personne SET actif = 0 WHERE idPersonne = :id";
         $sql = $db->prepare($request);
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         try {

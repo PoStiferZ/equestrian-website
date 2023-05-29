@@ -7,11 +7,11 @@ foreach ($result as $row) {
     $data[] = [
         'id'              => $row->id,
         'title'           => $row->title,
-        'start'           => $row->start_event,
+        'start'           => $row->startEvent,
         'end'             => $row->end_event,
         'backgroundColor' => $row->color,
         'textColor'       => $row->text_color,
-        'idRec'           => $row->ID_Recurrence,
+        'idRecurrence'           => $row->idRecurrence,
     ];
 }
 
