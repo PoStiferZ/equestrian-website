@@ -6,6 +6,7 @@ if (isset($type) && $type == 1) {
         header("Location: ../../");
     }
 }
+
 ?>
 <!DOCTYPE html>
 <!-- 
@@ -141,21 +142,21 @@ Author: Kenzo Fahem
                     </span><i class="la la-ellipsis-h" data-toggle="tooltip" data-placement="right" data-original-title="Admin Panels"></i>
                 </li>
 
-                <li class=" nav-item"><a href="../cavalier/index.php"><i class="la la-user"></i><span class="menu-title" data-i18n="eCommerce">Cavalier</span></a>
+                <li class=" nav-item"><a href="../cavalier/index.php" <?php if (isset($active) && $active == "cavalier") echo "class='active'" ?>><i class="la la-user"></i><span class="menu-title" data-i18n="eCommerce">Cavalier</span></a>
                 </li>
-                <li class=" nav-item"><a href="../cours/index.php"><i class="la la-calendar"></i><span class="menu-title" data-i18n="Hospital">Cours</span></a>
+                <li class=" nav-item"><a href="../cours/index.php" <?php if (isset($active) && $active == "cours") echo "class='active'" ?>><i class="la la-calendar"></i><span class="menu-title" data-i18n="Hospital">Cours</span></a>
                 </li>
-                <li class=" nav-item"><a href="../cheval/index.php"><i class="la"><img src="../../app-assets/images/logo/horse.png" alt=""></i><span class="menu-title" data-i18n="Crypto">Cheval</span></a>
+                <li class=" nav-item"><a href="../cheval/index.php" <?php if (isset($active) && $active == "cheval") echo "class='active'" ?>><i class="la"><img src="../../app-assets/images/logo/horse.png" alt=""></i><span class="menu-title" data-i18n="Crypto">Cheval</span></a>
                 </li>
-                <li class=" nav-item"><a href="../robe/index.php"><i class="la la-tag"></i><span class="menu-title" data-i18n="Support Ticket">Robe</span></a>
+                <li class=" nav-item"><a href="../robe/index.php" <?php if (isset($active) && $active == "robe") echo "class='active'" ?>><i class="la la-tag"></i><span class="menu-title" data-i18n="Support Ticket">Robe</span></a>
                 </li>
-                <li class=" nav-item"><a href="../pension/index.php"><i class="la"><img src="../../app-assets/images/logo/pension.png" alt=""></i><span class="menu-title">Pension</span></a>
+                <li class=" nav-item"><a href="../pension/index.php" <?php if (isset($active) && $active == "pension") echo "class='active'" ?>><i class="la"><img src="../../app-assets/images/logo/pension.png" alt=""></i><span class="menu-title">Pension</span></a>
                 </li>
-                <li class=" nav-item"><a href="../typepension/index.php"><i class="la la-tag"></i><span class="menu-title" data-i18n="Bank">Type Pension</span></a>
+                <li class=" nav-item"><a href="../typepension/index.php" <?php if (isset($active) && $active == "type pension") echo "class='active'" ?>><i class="la la-tag"></i><span class="menu-title" data-i18n="Bank">Type Pension</span></a>
                 </li>
-                <li class=" nav-item"><a href="../inscription/index.php"><i class="la la-tag"></i><span class="menu-title" data-i18n="Bank">Inscription</span></a>
+                <li class=" nav-item"><a href="../inscription/index.php" <?php if (isset($active) && $active == "inscription") echo "class='active'" ?>><i class="la la-tag"></i><span class="menu-title" data-i18n="Bank">Inscription</span></a>
                 </li>
-                <li class=" nav-item"><a href="../tarif/index.php"><i class="la"><img src="../../app-assets/images/logo/tarifs.png" alt=""></i><span class="menu-title" data-i18n="Bank">Tarifs</span></a>
+                <li class=" nav-item"><a href="../tarif/index.php" <?php if (isset($active) && $active == "tarifs") echo "class='active'" ?>><i class="la"><img src="../../app-assets/images/logo/tarifs.png" alt=""></i><span class="menu-title" data-i18n="Bank">Tarifs</span></a>
                 </li>
             </ul>
         </div>

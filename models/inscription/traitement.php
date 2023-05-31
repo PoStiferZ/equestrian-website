@@ -3,7 +3,7 @@ require('../../classes/defines.inc.php');
 $inscriptionFind = $oInscription->findAll();
 
 if (isset($_POST['submit'])) {
-    $inscriptionCreate = $oInscription->create($_POST['an'], $_POST['cffe'], $_POST['cc'], $_POST['idPersonne']);
+    $inscriptionCreate = $oInscription->create($_POST['an'], $_POST['cffe'], $_POST['cc'], $_POST['idCavalier']);
     header("Location: index.php");
 }
 
@@ -12,7 +12,9 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_POST['Update'])) {
-    $inscriptionUpdate = $oInscription->updateById($_POST['idInscription'], $_POST['an'], $_POST['cffe'], $_POST['cc'], $_POST['idPersonne']);
+
+    $oInscription->updateById($_POST['idInscription'], $_POST['an'], $_POST['cffe'], $_POST['cc'], $_POST['idPersonne']);
+
     header("Location: index.php");
 }
 
@@ -38,7 +40,7 @@ foreach ($data as $personne) {
     $value = $personne['nom'] . ' ' . $personne['prenom'];
     $cavaliers[] = [
         'value' => $value,
-        'id' => $personne['ID_Personne']
+        'id' => $personne['idPersonne']
     ];
 }
 

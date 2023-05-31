@@ -174,7 +174,7 @@ class Pension
     public function createSigne($idPers, $idPens)
     {
         global $db;
-        $request = "INSERT INTO signe (idPersonne, ID_Pension) VALUES(:idPers, :idPens)";
+        $request = "INSERT INTO signe (ID_Personne, ID_Pension) VALUES(:idPers, :idPens)";
         $sql = $db->prepare($request);
         $sql->bindValue(':idPers', $idPers, PDO::PARAM_INT);
         $sql->bindValue(':idPens', $idPens, PDO::PARAM_INT);
@@ -188,7 +188,7 @@ class Pension
     public function updateSigne($idPers, $idPens)
     {
         global $db;
-        $request = "UPDATE signe SET idPersonne =:idPers WHERE ID_Pension = :idPens";
+        $request = "UPDATE signe SET ID_Personne =:idPers WHERE ID_Pension = :idPens";
         $sql = $db->prepare($request);
         $sql->bindValue(':idPers', $idPers, PDO::PARAM_INT);
         $sql->bindValue(':idPens', $idPens, PDO::PARAM_INT);
@@ -243,7 +243,7 @@ class Pension
     public function findByIdPension($idS)
     {
         global $db;
-        $request = "SELECT SI.idPersonne
+        $request = "SELECT SI.ID_Personne
         FROM pension Pens 
         INNER JOIN signe SI ON Pens.ID_Pension = SI.ID_Pension
         WHERE Pens.ID_Pension = :id";
@@ -262,8 +262,8 @@ class Pension
         $request = "SELECT PE.idPersonne, PE.nom, PE.prenom
         FROM signe S 
         INNER JOIN pension P ON S.ID_Pension = P.ID_Pension
-        INNER JOIN personne PE ON S.idPersonne = PE.idPersonne
-        WHERE S.idPersonne = :id";
+        INNER JOIN personne PE ON S.ID_Personne = PE.idPersonne
+        WHERE S.ID_Personne = :id";
         $sql = $db->prepare($request);
         $sql->bindValue(':id', $idS, PDO::PARAM_INT);
         try {

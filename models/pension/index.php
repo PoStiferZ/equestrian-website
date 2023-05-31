@@ -1,5 +1,7 @@
 <?php
-$title = "cavalier";
+$title = "pension";
+$active = $title;
+
 $typeFile = "index";
 require("../template/header.php");
 if ($title != 'cours') {
@@ -69,7 +71,7 @@ if ($title != 'cours') {
                                                             <p class="td-p1-nom"><?php
                                                                                     $findPens = $oPension->findByIdPension($value['ID_Pension']);
                                                                                     foreach ($findPens as $idPens) {
-                                                                                        $findID0 = $oPension->findByIdSigne($idPens['idPersonne']);
+                                                                                        $findID0 = $oPension->findByIdSigne($idPens['ID_Personne']);
                                                                                         foreach ($findID0 as $value0) {
                                                                                             $name = $value0['nom'] . " " . $value0['prenom'];
                                                                                         }

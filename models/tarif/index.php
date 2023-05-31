@@ -1,5 +1,7 @@
 <?php
-$title = "cavalier";
+$title = "tarifs";
+$active = $title;
+
 $typeFile = "index";
 require("../template/header.php");
 if ($title != 'cours') {

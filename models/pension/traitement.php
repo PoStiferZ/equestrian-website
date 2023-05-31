@@ -13,7 +13,8 @@ if (isset($_POST['close'])) {
         foreach ($pensID as $value) {
             $LastID =  $value['LAST_INSERT_ID()'];
         }
-        $signeCreate = $oPension->createSigne($_POST['idPers'], $LastID);
+        $signeCreate = $oPension->createSigne($_POST['idCavalier'], $LastID);
+
         header("Location: index.php");
     }
 
@@ -23,7 +24,7 @@ if (isset($_POST['close'])) {
 
     if (isset($_POST['Update'])) {
         $pensionUpdate = $oPension->updateById($_POST['idPens'], $_POST['idTP'], $_POST['idTar'], $_POST['idChev'], $_POST['dD'], $_POST['dF']);
-        $pensionUpdate2 = $oPension->updateSigne($_POST['idPers'], $_POST['idPens']);
+        $pensionUpdate2 = $oPension->updateSigne($_POST['idCavalier'], $_POST['idPens']);
         header("Location: index.php");
     }
 

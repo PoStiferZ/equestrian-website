@@ -57,8 +57,17 @@ if ($title != 'cours') {
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinputCavalier">Cavalier</label>
-                                                            <input type="text" id="cavalier" class="form-control" placeholder="Cavalier" name="cavalier">
+                                                            <?php
+                                                            $valuePersonne = $oPension->findByIdPension($value['ID_Pension']);
+                                                            foreach ($valuePersonne as $valueP) {
+                                                                $valuePers = $oPension->findByIdSigne($valueP['ID_Personne']);
+                                                                foreach ($valuePers as $valueName) {
+                                                                    $valueNam = $valueName['nom'] . " " . $valueName['prenom'];
+                                                                }
+                                                            } ?>
+                                                            <input type="text" id="cavalier" class="form-control" placeholder="Cavalier" name="cavalier" value="<?= $valueNam ?>">
                                                             <input type="hidden" id="idCavalier" name="idCavalier">
+
                                                             <script>
                                                                 $(document).ready(function() {
                                                                     $.getJSON('personnes.json', function(data) {
@@ -97,15 +106,15 @@ if ($title != 'cours') {
                                                             ?>
                                                             <select name="idChev" class="form-control">
                                                                 <?php foreach ($cheval as $value2) {
-                                                                    $idChev = $value2['ID_Cheval'];
+                                                                    $idChev = $value2['id'];
                                                                 ?>
 
-                                                                <?php if ($idChev == $value['ID_Cheval']) {
+                                                                <?php if ($idChev == $value['id']) {
                                                                         $selected = "selected=''";
                                                                     } else {
                                                                         $selected = "";
                                                                     }
-                                                                    echo "<option " . $selected . " value='" . $value2['ID_Cheval'] . "' >" . $value2['nom_Cheval'] . "</option>";
+                                                                    echo "<option " . $selected . " value='" . $value2['id'] . "' >" . $value2['nom'] . "</option>";
                                                                 }
                                                                 ?>
 

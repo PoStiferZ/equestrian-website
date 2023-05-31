@@ -95,10 +95,10 @@ if ($title != 'cours') {
                                                         ?>
                                                         <select name="idChev" class="form-control">
                                                             <?php foreach ($cheval as $value2) {
-                                                                $idChev = $value2['ID_Cheval'];
+                                                                $idChev = $value2['id'];
                                                             ?>
                                                             <?php
-                                                                echo "<option " . " value='" . $value2['ID_Cheval'] . "' >" . $value2['nom_Cheval'] . "</option>";
+                                                                echo "<option " . " value='" . $value2['id'] . "' >" . $value2['nom'] . "</option>";
                                                             }
                                                             ?>
                                                         </select>

@@ -1,5 +1,7 @@
 <?php
 
+use Dcblogdev\PdoWrapper\Database;
+
 try {
     $server = "localhost";
     $username = "root";
@@ -24,7 +26,6 @@ require("typepension.class.php");
 require("cours.class.php");
 require("inscriptionCours.class.php");
 require("contact.class.php");
-
 
 
 

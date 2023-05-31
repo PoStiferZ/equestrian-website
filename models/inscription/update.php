@@ -64,7 +64,7 @@ if ($title != 'cours') {
                                                                 <?php
                                                                 foreach ($nom as $value2) {
                                                                 ?>
-                                                                    <option value="<?= $value2['ID_Personne'] ?>" <?php if ($value2['nom'] == $nomLib) {
+                                                                    <option value="<?= $value2['idPersonne'] ?>" <?php if ($value2['nom'] == $nomLib) {
                                                                                                                         echo "selected=''";
                                                                                                                     } ?>> <?= $value2['nom'] . " " . $value2['prenom'] ?> </option>
                                                                 <?php

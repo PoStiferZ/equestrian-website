@@ -1,5 +1,7 @@
 <?php
 $title = "cours";
+$active = $title;
+
 require("../template/header.php");
 require('config.php'); ?>
 <!DOCTYPE html>
