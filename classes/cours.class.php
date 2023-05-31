@@ -169,7 +169,7 @@ class Cours
     public function findAll()
     {
         global $db;
-        $request = "SELECT * FROM events";
+        $request = "SELECT *, DISCTINCT(ID_Recurrence) FROM events";
         $sql = $db->prepare($request);
         try {
             $sql->execute();
