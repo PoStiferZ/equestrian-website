@@ -86,14 +86,15 @@ class InscriptionCours
         $sql2 = $db->prepare($request2);
         $sql2->bindValue(':idCours', $idCours, PDO::PARAM_INT);
         $sql2->execute();
-        $idCours = $sql2->fetchAll(PDO::FETCH_ASSOC);
+        $idDesCours = $sql2->fetchAll(PDO::FETCH_ASSOC);
 
         $success = true;
-        foreach ($idCours as $unCours) {
-            $request = "INSERT INTO inscription_cours (idP, idC, presence) VALUES (:idP, :idC, 1);";
+        foreach ($idDesCours as $unCours) {
+            $request = "INSERT INTO inscription_cours (idP, idC, idRecurrence, presence) VALUES (:idP, :idC, :idRecurrence, 1);";
             $sql = $db->prepare($request);
             $sql->bindValue(':idP', $idPersonne, PDO::PARAM_INT);
             $sql->bindValue(':idC', $unCours['id'], PDO::PARAM_INT);
+            $sql->bindValue(':idRecurrence', $idCours, PDO::PARAM_INT);
             try {
                 $success = $success && $sql->execute();
             } catch (PDOException $e) {

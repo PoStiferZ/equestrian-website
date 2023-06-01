@@ -31,6 +31,7 @@ if (isset($_POST['bePresent'])) {
 if (isset($_POST['newInscriptionCours'])) {
     $idPersonne = htmlspecialchars($_POST['idPersonne']);
     $idCours = htmlspecialchars($_POST['idCours']);
+
     $oInscriptionCours->create($idPersonne, $idCours);
     header("Location: index.php");
 }
