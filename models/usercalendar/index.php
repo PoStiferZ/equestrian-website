@@ -50,6 +50,12 @@ require('traitement.php');
                                     Inscription
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex" id="account-pill-password2" data-toggle="pill" href="#account-vertical-password2" aria-expanded="false">
+                                    <i class="ft-calendar mr-50"></i>
+                                    Désinscription
+                                </a>
+                            </li>
 
                         </ul>
                     </div>
@@ -176,8 +182,16 @@ require('traitement.php');
                                                             <label>Cours</label>
                                                             <select name="idCours" class="form-control">
                                                                 <!-- On récupère le titre et l'id de recurrence du cours -->
-                                                                <?php foreach ($allDataInscriptionCours as $value) {
-                                                                    echo "<option " . " value='" . $value['idRecurrence'] . "' >" . $value['title'] . "</option>";
+
+                                                                <?php
+                                                                if (empty($allDataInscriptionCours)) {
+                                                                    echo "<option> Aucun cours disponible</option>";
+                                                                    $disabled = "disabled";
+                                                                } else {
+                                                                    foreach ($allDataInscriptionCours as $value) {
+                                                                        echo "<option " . " value='" . $value['idRecurrence'] . "' >" . $value['title'] . "</option>";
+                                                                    }
+                                                                    $disabled = "";
                                                                 }
                                                                 ?>
                                                             </select>
@@ -185,12 +199,43 @@ require('traitement.php');
                                                     </div>
 
                                                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0" name="newInscriptionCours">Sauvegarder</button>
+                                                        <button type="submit" class="btn btn-success mr-sm-1 mb-1 mb-sm-0" name="newInscriptionCours" <?= $disabled ?>>Sauvegarder</button>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                         <!-- S'INSCRIRE à UN COURS - END -->
+                                        <div class="tab-pane fade" id="account-vertical-password2" role="tabpanel" aria-labelledby="account-pill-password2" aria-expanded="false">
+                                            <form action="index.php" method="POST">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <!-- ON Récupère l'id de session de l'utilisateur -->
+                                                            <input type="text" name="idPersonne" value="<?= $_SESSION['id']; ?>" hidden>
+                                                            <label>Cours</label>
+                                                            <select name="idCours" class="form-control">
+                                                                <!-- On récupère le titre et l'id de recurrence du cours -->
+                                                                <?php
+                                                                if (empty($inscriptionById)) {
+                                                                    echo "<option> Aucune inscription à un cours</option>";
+                                                                    $disabled = "disabled";
+                                                                } else {
+                                                                    foreach ($inscriptionById as $value) {
+                                                                        echo "<option " . " value='" . $value['idRecurrence'] . "' >" . $value['title'] . "</option>";
+                                                                    }
+                                                                    $disabled = "";
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                        <button type="submit" class="btn btn-danger mr-sm-1 mb-1 mb-sm-0" name="deleteInscription" <?= $disabled ?>>Se désinscrire</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -106,11 +106,42 @@ class InscriptionCours
         return $success;
     }
 
-    public function findAll()
+    public function deleteInscription($idPersonne, $idRecurrence)
     {
         global $db;
-        $request = "SELECT DISTINCT(idRecurrence), title FROM events";
+        $request = "DELETE FROM inscription_cours WHERE idP = :idPersonne AND idRecurrence = :idRecurrence";
         $sql = $db->prepare($request);
+        $sql->bindValue(':idRecurrence', $idRecurrence, PDO::PARAM_INT);
+        $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
+        $sql->execute();
+    }
+    public function inscriptionSiNonInscrit($idPersonne)
+    {
+        global $db;
+        $request = "SELECT DISTINCT E.idRecurrence, E.title 
+        FROM events E
+        LEFT JOIN inscription_cours I ON E.idRecurrence = I.idRecurrence AND I.idP = :idPersonne
+        WHERE I.idRecurrence IS NULL;
+        ";
+        $sql = $db->prepare($request);
+        $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
+        try {
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return $this->errmessage . $e->getMessage();
+        }
+    }
+
+    public function inscriptionById($idPersonne)
+    {
+        global $db;
+        $request = "SELECT DISTINCT title, I.idRecurrence
+        FROM inscription_cours I
+        INNER JOIN events E ON I.idRecurrence = E.idRecurrence
+        WHERE idP = :idPersonne";
+        $sql = $db->prepare($request);
+        $sql->bindValue(':idPersonne', $idPersonne, PDO::PARAM_INT);
         try {
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_ASSOC);

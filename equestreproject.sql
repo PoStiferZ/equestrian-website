@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : lun. 29 mai 2023 à 15:51
--- Version du serveur :  5.7.24
--- Version de PHP : 7.4.16
+-- Host: localhost:3306
+-- Generation Time: Jun 02, 2023 at 04:31 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `equestreproject`
+-- Database: `equestreproject`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cheval`
+-- Table structure for table `cheval`
 --
 
 CREATE TABLE `cheval` (
@@ -38,11 +38,11 @@ CREATE TABLE `cheval` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `cheval`
+-- Dumping data for table `cheval`
 --
 
 INSERT INTO `cheval` (`id`, `nom`, `naissance`, `sir`, `photo`, `idRobe`, `actif`) VALUES
-(12, 'Hope', '2023-03-10', 222, '64234eb047fe73.81696598.png', 4, 1),
+(12, 'Hopes', '2023-03-10', 222, '64234eb047fe73.81696598.png', 2, 1),
 (13, 'Tulip', '2021-04-26', 2332, '642e61a8b66865.01738898.png', 7, 1),
 (14, 'Patronus', '2015-11-05', 2335, '642e61c10dd9f4.25829420.png', 7, 1),
 (15, 'Test Unitaire', '2023-05-12', 12932, '645164d9874e17.79687570.png', 6, 0);
@@ -50,7 +50,7 @@ INSERT INTO `cheval` (`id`, `nom`, `naissance`, `sir`, `photo`, `idRobe`, `actif
 -- --------------------------------------------------------
 
 --
--- Structure de la table `contact`
+-- Table structure for table `contact`
 --
 
 CREATE TABLE `contact` (
@@ -65,7 +65,7 @@ CREATE TABLE `contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `contact`
+-- Dumping data for table `contact`
 --
 
 INSERT INTO `contact` (`id`, `nom`, `prenom`, `mail`, `sujet`, `commentaire`, `dateContact`, `actif`) VALUES
@@ -75,103 +75,124 @@ INSERT INTO `contact` (`id`, `nom`, `prenom`, `mail`, `sujet`, `commentaire`, `d
 -- --------------------------------------------------------
 
 --
--- Structure de la table `events`
+-- Table structure for table `events`
 --
 
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
-  `title` text NOT NULL,
-  `startEvent` datetime NOT NULL,
-  `end_event` datetime NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `startEvent` date NOT NULL,
+  `end_event` date NOT NULL,
   `color` varchar(191) NOT NULL,
   `text_color` varchar(191) NOT NULL,
   `idRecurrence` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `events`
+-- Dumping data for table `events`
 --
 
 INSERT INTO `events` (`id`, `title`, `startEvent`, `end_event`, `color`, `text_color`, `idRecurrence`) VALUES
-(406, 'Cours Junior', '2023-05-01 10:00:00', '2023-05-01 12:00:00', '#4ad668', '#ffffff', 406),
-(407, 'Cours Junior', '2023-05-08 10:00:00', '2023-05-08 12:00:00', '#4ad668', '#ffffff', 406),
-(408, 'Cours Junior', '2023-05-15 10:00:00', '2023-05-15 12:00:00', '#4ad668', '#ffffff', 406),
-(409, 'Cours Junior', '2023-05-22 10:00:00', '2023-05-22 12:00:00', '#4ad668', '#ffffff', 406),
-(410, 'Cours Junior', '2023-05-29 10:00:00', '2023-05-29 12:00:00', '#4ad668', '#ffffff', 406),
-(411, 'Cours Junior', '2023-06-05 10:00:00', '2023-06-05 12:00:00', '#4ad668', '#ffffff', 406),
-(412, 'Cours Junior', '2023-06-12 10:00:00', '2023-06-12 12:00:00', '#4ad668', '#ffffff', 406),
-(413, 'Cours Junior', '2023-06-19 10:00:00', '2023-06-19 12:00:00', '#4ad668', '#ffffff', 406),
-(414, 'Cours Junior', '2023-06-26 10:00:00', '2023-06-26 12:00:00', '#4ad668', '#ffffff', 406),
-(415, 'Cours Junior', '2023-07-03 10:00:00', '2023-07-03 12:00:00', '#4ad668', '#ffffff', 406),
-(416, 'Cours Junior', '2023-07-10 10:00:00', '2023-07-10 12:00:00', '#4ad668', '#ffffff', 406),
-(417, 'Cours Junior', '2023-07-17 10:00:00', '2023-07-17 12:00:00', '#4ad668', '#ffffff', 406),
-(418, 'Cours Junior', '2023-07-24 10:00:00', '2023-07-24 12:00:00', '#4ad668', '#ffffff', 406),
-(419, 'Cours Junior', '2023-07-31 10:00:00', '2023-07-31 12:00:00', '#4ad668', '#ffffff', 406),
-(420, 'Cours Junior', '2023-08-07 10:00:00', '2023-08-07 12:00:00', '#4ad668', '#ffffff', 406),
-(421, 'Cours Junior', '2023-08-14 10:00:00', '2023-08-14 12:00:00', '#4ad668', '#ffffff', 406),
-(422, 'Cours Junior', '2023-08-21 10:00:00', '2023-08-21 12:00:00', '#4ad668', '#ffffff', 406),
-(423, 'Cours Junior', '2023-08-28 10:00:00', '2023-08-28 12:00:00', '#4ad668', '#ffffff', 406),
-(424, 'Cours Junior', '2023-09-04 10:00:00', '2023-09-04 12:00:00', '#4ad668', '#ffffff', 406),
-(425, 'Cours Junior', '2023-09-11 10:00:00', '2023-09-11 12:00:00', '#4ad668', '#ffffff', 406),
-(426, 'Cours Junior', '2023-09-18 10:00:00', '2023-09-18 12:00:00', '#4ad668', '#ffffff', 406),
-(427, 'Cours Junior', '2023-09-25 10:00:00', '2023-09-25 12:00:00', '#4ad668', '#ffffff', 406),
-(428, 'Cours Junior', '2023-10-02 10:00:00', '2023-10-02 12:00:00', '#4ad668', '#ffffff', 406),
-(429, 'Cours Junior', '2023-10-09 10:00:00', '2023-10-09 12:00:00', '#4ad668', '#ffffff', 406),
-(430, 'Cours Junior', '2023-10-16 10:00:00', '2023-10-16 12:00:00', '#4ad668', '#ffffff', 406),
-(431, 'Cours Junior', '2023-10-23 10:00:00', '2023-10-23 12:00:00', '#4ad668', '#ffffff', 406),
-(432, 'Cours Junior', '2023-10-30 10:00:00', '2023-10-30 12:00:00', '#4ad668', '#ffffff', 406),
-(433, 'Cours Junior', '2023-11-06 10:00:00', '2023-11-06 12:00:00', '#4ad668', '#ffffff', 406),
-(434, 'Cours Junior', '2023-11-13 10:00:00', '2023-11-13 12:00:00', '#4ad668', '#ffffff', 406),
-(435, 'Cours Junior', '2023-11-20 10:00:00', '2023-11-20 12:00:00', '#4ad668', '#ffffff', 406),
-(436, 'Cours Junior', '2023-11-27 10:00:00', '2023-11-27 12:00:00', '#4ad668', '#ffffff', 406),
-(437, 'Cours Junior', '2023-12-04 10:00:00', '2023-12-04 12:00:00', '#4ad668', '#ffffff', 406),
-(438, 'Cours Junior', '2023-12-11 10:00:00', '2023-12-11 12:00:00', '#4ad668', '#ffffff', 406),
-(439, 'Cours Junior', '2023-12-18 10:00:00', '2023-12-18 12:00:00', '#4ad668', '#ffffff', 406),
-(440, 'Cours Junior', '2023-12-25 10:00:00', '2023-12-25 12:00:00', '#4ad668', '#ffffff', 406),
-(441, 'Cours Junior', '2024-01-01 10:00:00', '2024-01-01 12:00:00', '#4ad668', '#ffffff', 406),
-(442, 'Cours Junior', '2024-01-08 10:00:00', '2024-01-08 12:00:00', '#4ad668', '#ffffff', 406),
-(443, 'Cours Junior', '2024-01-15 10:00:00', '2024-01-15 12:00:00', '#4ad668', '#ffffff', 406),
-(444, 'Cours Junior', '2024-01-22 10:00:00', '2024-01-22 12:00:00', '#4ad668', '#ffffff', 406),
-(445, 'Cours Junior', '2024-01-29 10:00:00', '2024-01-29 12:00:00', '#4ad668', '#ffffff', 406),
-(446, 'Cours Junior', '2024-02-05 10:00:00', '2024-02-05 12:00:00', '#4ad668', '#ffffff', 406),
-(447, 'Cours Junior', '2024-02-12 10:00:00', '2024-02-12 12:00:00', '#4ad668', '#ffffff', 406),
-(448, 'Cours Junior', '2024-02-19 10:00:00', '2024-02-19 12:00:00', '#4ad668', '#ffffff', 406),
-(449, 'Cours Junior', '2024-02-26 10:00:00', '2024-02-26 12:00:00', '#4ad668', '#ffffff', 406),
-(450, 'Cours Junior', '2024-03-04 10:00:00', '2024-03-04 12:00:00', '#4ad668', '#ffffff', 406),
-(451, 'Cours Junior', '2024-03-11 10:00:00', '2024-03-11 12:00:00', '#4ad668', '#ffffff', 406),
-(452, 'Cours Junior', '2024-03-18 10:00:00', '2024-03-18 12:00:00', '#4ad668', '#ffffff', 406),
-(453, 'Cours Junior', '2024-03-25 10:00:00', '2024-03-25 12:00:00', '#4ad668', '#ffffff', 406),
-(454, 'Cours Junior', '2024-04-01 10:00:00', '2024-04-01 12:00:00', '#4ad668', '#ffffff', 406),
-(455, 'Cours Senior', '2023-05-10 10:00:00', '2023-05-10 12:00:00', '#4aacd6', '#ffffff', 455),
-(456, 'Cours Senior', '2023-05-17 10:00:00', '2023-05-17 12:00:00', '#4aacd6', '#ffffff', 455),
-(457, 'Cours Senior', '2023-05-24 10:00:00', '2023-05-24 12:00:00', '#4aacd6', '#ffffff', 455),
-(458, 'Cours Senior', '2023-05-31 10:00:00', '2023-05-31 12:00:00', '#4aacd6', '#ffffff', 455),
-(459, 'Cours Senior', '2023-06-07 10:00:00', '2023-06-07 12:00:00', '#4aacd6', '#ffffff', 455),
-(460, 'Cours Senior', '2023-06-14 10:00:00', '2023-06-14 12:00:00', '#4aacd6', '#ffffff', 455),
-(461, 'Cours Senior', '2023-06-21 10:00:00', '2023-06-21 12:00:00', '#4aacd6', '#ffffff', 455),
-(462, 'Cours Senior', '2023-06-28 10:00:00', '2023-06-28 12:00:00', '#4aacd6', '#ffffff', 455),
-(463, 'Cours Senior', '2023-07-05 10:00:00', '2023-07-05 12:00:00', '#4aacd6', '#ffffff', 455),
-(464, 'Cours Senior', '2023-07-12 10:00:00', '2023-07-12 12:00:00', '#4aacd6', '#ffffff', 455),
-(465, 'Cours Senior', '2023-07-19 10:00:00', '2023-07-19 12:00:00', '#4aacd6', '#ffffff', 455),
-(466, 'Cours Senior', '2023-07-26 10:00:00', '2023-07-26 12:00:00', '#4aacd6', '#ffffff', 455),
-(467, 'Cours Senior', '2023-08-02 10:00:00', '2023-08-02 12:00:00', '#4aacd6', '#ffffff', 455),
-(468, 'Cours Senior', '2023-08-09 10:00:00', '2023-08-09 12:00:00', '#4aacd6', '#ffffff', 455),
-(469, 'Cours Senior', '2023-08-16 10:00:00', '2023-08-16 12:00:00', '#4aacd6', '#ffffff', 455),
-(470, 'Cours Senior', '2023-08-23 10:00:00', '2023-08-23 12:00:00', '#4aacd6', '#ffffff', 455),
-(471, 'Cours Senior', '2023-08-30 10:00:00', '2023-08-30 12:00:00', '#4aacd6', '#ffffff', 455),
-(472, 'Cours Senior', '2023-09-06 10:00:00', '2023-09-06 12:00:00', '#4aacd6', '#ffffff', 455),
-(473, 'Cours Senior', '2023-09-13 10:00:00', '2023-09-13 12:00:00', '#4aacd6', '#ffffff', 455),
-(474, 'Cours Senior', '2023-09-20 10:00:00', '2023-09-20 12:00:00', '#4aacd6', '#ffffff', 455),
-(475, 'Cours Senior', '2023-09-27 10:00:00', '2023-09-27 12:00:00', '#4aacd6', '#ffffff', 455),
-(476, 'Cours Senior', '2023-10-04 10:00:00', '2023-10-04 12:00:00', '#4aacd6', '#ffffff', 455),
-(477, 'Cours Senior', '2023-10-11 10:00:00', '2023-10-11 12:00:00', '#4aacd6', '#ffffff', 455),
-(478, 'Cours Senior', '2023-10-18 10:00:00', '2023-10-18 12:00:00', '#4aacd6', '#ffffff', 455),
-(479, 'Cours Senior', '2023-10-25 10:00:00', '2023-10-25 12:00:00', '#4aacd6', '#ffffff', 455);
+(554, 'Cours Junior', '2023-06-01', '2023-06-01', '#509338', '#ffffff', 554),
+(555, 'Cours Junior', '2023-06-08', '2023-06-08', '#509338', '#ffffff', 554),
+(556, 'Cours Junior', '2023-06-15', '2023-06-15', '#509338', '#ffffff', 554),
+(557, 'Cours Junior', '2023-06-22', '2023-06-22', '#509338', '#ffffff', 554),
+(558, 'Cours Junior', '2023-06-29', '2023-06-29', '#509338', '#ffffff', 554),
+(559, 'Cours Junior', '2023-07-06', '2023-07-06', '#509338', '#ffffff', 554),
+(560, 'Cours Junior', '2023-07-13', '2023-07-13', '#509338', '#ffffff', 554),
+(561, 'Cours Junior', '2023-07-20', '2023-07-20', '#509338', '#ffffff', 554),
+(562, 'Cours Junior', '2023-07-27', '2023-07-27', '#509338', '#ffffff', 554),
+(563, 'Cours Junior', '2023-08-03', '2023-08-03', '#509338', '#ffffff', 554),
+(564, 'Cours Junior', '2023-08-10', '2023-08-10', '#509338', '#ffffff', 554),
+(565, 'Cours Junior', '2023-08-17', '2023-08-17', '#509338', '#ffffff', 554),
+(566, 'Cours Junior', '2023-08-24', '2023-08-24', '#509338', '#ffffff', 554),
+(567, 'Cours Junior', '2023-08-31', '2023-08-31', '#509338', '#ffffff', 554),
+(568, 'Cours Junior', '2023-09-07', '2023-09-07', '#509338', '#ffffff', 554),
+(569, 'Cours Junior', '2023-09-14', '2023-09-14', '#509338', '#ffffff', 554),
+(570, 'Cours Junior', '2023-09-21', '2023-09-21', '#509338', '#ffffff', 554),
+(571, 'Cours Junior', '2023-09-28', '2023-09-28', '#509338', '#ffffff', 554),
+(572, 'Cours Junior', '2023-10-05', '2023-10-05', '#509338', '#ffffff', 554),
+(573, 'Cours Junior', '2023-10-12', '2023-10-12', '#509338', '#ffffff', 554),
+(574, 'Cours Junior', '2023-10-19', '2023-10-19', '#509338', '#ffffff', 554),
+(575, 'Cours Junior', '2023-10-26', '2023-10-26', '#509338', '#ffffff', 554),
+(576, 'Cours Junior', '2023-11-02', '2023-11-02', '#509338', '#ffffff', 554),
+(577, 'Cours Junior', '2023-11-09', '2023-11-09', '#509338', '#ffffff', 554),
+(578, 'Cours Junior', '2023-11-16', '2023-11-16', '#509338', '#ffffff', 554),
+(579, 'Cours Junior', '2023-11-23', '2023-11-23', '#509338', '#ffffff', 554),
+(580, 'Cours Junior', '2023-11-30', '2023-11-30', '#509338', '#ffffff', 554),
+(581, 'Cours Junior', '2023-12-07', '2023-12-07', '#509338', '#ffffff', 554),
+(582, 'Cours Junior', '2023-12-14', '2023-12-14', '#509338', '#ffffff', 554),
+(583, 'Cours Junior', '2023-12-21', '2023-12-21', '#509338', '#ffffff', 554),
+(584, 'Cours Junior', '2023-12-28', '2023-12-28', '#509338', '#ffffff', 554),
+(585, 'Cours Junior', '2024-01-04', '2024-01-04', '#509338', '#ffffff', 554),
+(586, 'Cours Junior', '2024-01-11', '2024-01-11', '#509338', '#ffffff', 554),
+(587, 'Cours Junior', '2024-01-18', '2024-01-18', '#509338', '#ffffff', 554),
+(588, 'Cours Junior', '2024-01-25', '2024-01-25', '#509338', '#ffffff', 554),
+(589, 'Cours Junior', '2024-02-01', '2024-02-01', '#509338', '#ffffff', 554),
+(590, 'Cours Junior', '2024-02-08', '2024-02-08', '#509338', '#ffffff', 554),
+(591, 'Cours Junior', '2024-02-15', '2024-02-15', '#509338', '#ffffff', 554),
+(592, 'Cours Junior', '2024-02-22', '2024-02-22', '#509338', '#ffffff', 554),
+(593, 'Cours Junior', '2024-02-29', '2024-02-29', '#509338', '#ffffff', 554),
+(594, 'Cours Junior', '2024-03-07', '2024-03-07', '#509338', '#ffffff', 554),
+(595, 'Cours Junior', '2024-03-14', '2024-03-14', '#509338', '#ffffff', 554),
+(596, 'Cours Junior', '2024-03-21', '2024-03-21', '#509338', '#ffffff', 554),
+(597, 'Cours Junior', '2024-03-28', '2024-03-28', '#509338', '#ffffff', 554),
+(598, 'Cours Junior', '2024-04-04', '2024-04-04', '#509338', '#ffffff', 554),
+(599, 'Cours Junior', '2024-04-11', '2024-04-11', '#509338', '#ffffff', 554),
+(600, 'Cours Junior', '2024-04-18', '2024-04-18', '#509338', '#ffffff', 554),
+(601, 'Cours Junior', '2024-04-25', '2024-04-25', '#509338', '#ffffff', 554),
+(602, 'Cours Junior', '2024-05-02', '2024-05-02', '#509338', '#ffffff', 554),
+(603, 'Cours Débutant', '2023-06-02', '2023-06-02', '#db78d1', '#ffffff', 603),
+(604, 'Cours Débutant', '2023-06-09', '2023-06-09', '#db78d1', '#ffffff', 603),
+(605, 'Cours Débutant', '2023-06-16', '2023-06-16', '#db78d1', '#ffffff', 603),
+(606, 'Cours Débutant', '2023-06-23', '2023-06-23', '#db78d1', '#ffffff', 603),
+(607, 'Cours Débutant', '2023-06-30', '2023-06-30', '#db78d1', '#ffffff', 603),
+(608, 'Cours Débutant', '2023-07-07', '2023-07-07', '#db78d1', '#ffffff', 603),
+(609, 'Cours Débutant', '2023-07-14', '2023-07-14', '#db78d1', '#ffffff', 603),
+(610, 'Cours Débutant', '2023-07-21', '2023-07-21', '#db78d1', '#ffffff', 603),
+(611, 'Cours Débutant', '2023-07-28', '2023-07-28', '#db78d1', '#ffffff', 603),
+(612, 'Cours Débutant', '2023-08-04', '2023-08-04', '#db78d1', '#ffffff', 603),
+(613, 'Cours Débutant', '2023-08-11', '2023-08-11', '#db78d1', '#ffffff', 603),
+(614, 'Cours Débutant', '2023-08-18', '2023-08-18', '#db78d1', '#ffffff', 603),
+(615, 'Cours Débutant', '2023-08-25', '2023-08-25', '#db78d1', '#ffffff', 603),
+(641, 'Cours Découverte', '2023-06-06', '2023-06-06', '#e99a53', '#ffffff', 641),
+(642, 'Cours Découverte', '2023-06-13', '2023-06-13', '#e99a53', '#ffffff', 641),
+(643, 'Cours Découverte', '2023-06-20', '2023-06-20', '#e99a53', '#ffffff', 641),
+(644, 'Cours Découverte', '2023-06-27', '2023-06-27', '#e99a53', '#ffffff', 641),
+(645, 'Cours Découverte', '2023-07-04', '2023-07-04', '#e99a53', '#ffffff', 641),
+(646, 'Cours Découverte', '2023-07-11', '2023-07-11', '#e99a53', '#ffffff', 641),
+(647, 'Cours Découverte', '2023-07-18', '2023-07-18', '#e99a53', '#ffffff', 641),
+(648, 'Cours Découverte', '2023-07-25', '2023-07-25', '#e99a53', '#ffffff', 641),
+(649, 'Cours Découverte', '2023-08-01', '2023-08-01', '#e99a53', '#ffffff', 641),
+(650, 'Cours Découverte', '2023-08-08', '2023-08-08', '#e99a53', '#ffffff', 641),
+(651, 'Cours Découverte', '2023-08-15', '2023-08-15', '#e99a53', '#ffffff', 641),
+(652, 'Cours Découverte', '2023-08-22', '2023-08-22', '#e99a53', '#ffffff', 641),
+(653, 'Cours Découverte', '2023-08-29', '2023-08-29', '#e99a53', '#ffffff', 641),
+(654, 'Cours Découverte', '2023-09-05', '2023-09-05', '#e99a53', '#ffffff', 641),
+(655, 'Cours Découverte', '2023-09-12', '2023-09-12', '#e99a53', '#ffffff', 641),
+(656, 'Cours Découverte', '2023-09-19', '2023-09-19', '#e99a53', '#ffffff', 641),
+(657, 'Cours Découverte', '2023-09-26', '2023-09-26', '#e99a53', '#ffffff', 641),
+(658, 'Cours Découverte', '2023-10-03', '2023-10-03', '#e99a53', '#ffffff', 641),
+(659, 'Cours Découverte', '2023-10-10', '2023-10-10', '#e99a53', '#ffffff', 641),
+(660, 'Cours Découverte', '2023-10-17', '2023-10-17', '#e99a53', '#ffffff', 641),
+(661, 'Cours Découverte', '2023-10-24', '2023-10-24', '#e99a53', '#ffffff', 641),
+(662, 'Cours Découverte', '2023-10-31', '2023-10-31', '#e99a53', '#ffffff', 641),
+(663, 'Cours Découverte', '2023-11-07', '2023-11-07', '#e99a53', '#ffffff', 641),
+(664, 'Cours Découverte', '2023-11-14', '2023-11-14', '#e99a53', '#ffffff', 641),
+(665, 'Cours Découverte', '2023-11-21', '2023-11-21', '#e99a53', '#ffffff', 641),
+(666, 'Cours Découverte', '2023-11-28', '2023-11-28', '#e99a53', '#ffffff', 641),
+(667, 'Cours Découverte', '2023-12-05', '2023-12-05', '#e99a53', '#ffffff', 641),
+(668, 'Cours Découverte', '2023-12-12', '2023-12-12', '#e99a53', '#ffffff', 641),
+(669, 'Cours Découverte', '2023-12-19', '2023-12-19', '#e99a53', '#ffffff', 641),
+(670, 'Cours Découverte', '2023-12-26', '2023-12-26', '#e99a53', '#ffffff', 641),
+(671, 'Cours Découverte', '2024-01-02', '2024-01-02', '#e99a53', '#ffffff', 641),
+(672, 'Cours Découverte', '2024-01-09', '2024-01-09', '#e99a53', '#ffffff', 641),
+(673, 'Cours Découverte', '2024-01-16', '2024-01-16', '#e99a53', '#ffffff', 641);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `inscription`
+-- Table structure for table `inscription`
 --
 
 CREATE TABLE `inscription` (
@@ -184,7 +205,7 @@ CREATE TABLE `inscription` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `inscription`
+-- Dumping data for table `inscription`
 --
 
 INSERT INTO `inscription` (`ID_Inscription`, `annee`, `CotisationFFE`, `CotisationCentre`, `ID_Personne`, `actif`) VALUES
@@ -193,56 +214,47 @@ INSERT INTO `inscription` (`ID_Inscription`, `annee`, `CotisationFFE`, `Cotisati
 (3, '2023-02-10', 2000, 200, 1077, 1),
 (4, '2031-06-02', 2000, 200, 1078, 1),
 (5, '2023-03-03', 123, 122, 1097, 1),
-(6, '2023-04-12', 332, 223, 1103, 1),
-(7, '2023-04-13', 500, 100, 1101, 1);
+(6, '2023-04-12', 332, 223, 1103, 0),
+(7, '2023-04-12', 500, 100, 1101, 1),
+(8, '2023-05-10', 232332, 1212, 1103, 1),
+(9, '2023-05-07', 100000, 1212, 1104, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `inscription_cours`
+-- Table structure for table `inscription_cours`
 --
 
 CREATE TABLE `inscription_cours` (
   `idP` int(11) NOT NULL,
   `idC` int(11) NOT NULL,
-  `presence` tinyint(1) NOT NULL
+  `presence` tinyint(1) NOT NULL,
+  `idRecurrence` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `inscription_cours`
+-- Dumping data for table `inscription_cours`
 --
 
-INSERT INTO `inscription_cours` (`idP`, `idC`, `presence`) VALUES
-(1101, 455, 1),
-(1101, 456, 1),
-(1101, 457, 1),
-(1101, 458, 1),
-(1101, 459, 0),
-(1101, 460, 1),
-(1101, 461, 0),
-(1101, 462, 1),
-(1101, 463, 1),
-(1101, 464, 1),
-(1101, 465, 1),
-(1101, 466, 1),
-(1101, 467, 1),
-(1101, 468, 1),
-(1101, 469, 0),
-(1101, 470, 1),
-(1101, 471, 1),
-(1101, 472, 1),
-(1101, 473, 1),
-(1101, 474, 1),
-(1101, 475, 1),
-(1101, 476, 1),
-(1101, 477, 1),
-(1101, 478, 1),
-(1101, 479, 1);
+INSERT INTO `inscription_cours` (`idP`, `idC`, `presence`, `idRecurrence`) VALUES
+(1101, 603, 1, 603),
+(1101, 604, 1, 603),
+(1101, 605, 1, 603),
+(1101, 606, 1, 603),
+(1101, 607, 1, 603),
+(1101, 608, 1, 603),
+(1101, 609, 1, 603),
+(1101, 610, 1, 603),
+(1101, 611, 1, 603),
+(1101, 612, 1, 603),
+(1101, 613, 1, 603),
+(1101, 614, 1, 603),
+(1101, 615, 1, 603);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pension`
+-- Table structure for table `pension`
 --
 
 CREATE TABLE `pension` (
@@ -256,19 +268,28 @@ CREATE TABLE `pension` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `pension`
+-- Dumping data for table `pension`
 --
 
 INSERT INTO `pension` (`ID_Pension`, `ID_TP`, `ID_Tarif`, `ID_Cheval`, `dateDebut`, `dateFin`, `actif`) VALUES
-(35, 3, 6, 12, '2023-03-28', '2023-04-09', 1),
-(36, 1, 2, 13, '2023-04-08', '2023-04-27', 1),
-(37, 3, 6, 14, '2023-04-13', '2023-04-20', 1),
-(38, 2, 6, 12, '2023-04-08', '2023-04-29', 1);
+(35, 3, 6, 12, '2023-03-28', '2023-04-09', 0),
+(36, 1, 2, 13, '2023-04-08', '2023-04-27', 0),
+(37, 3, 6, 14, '2023-04-13', '2023-04-20', 0),
+(38, 2, 6, 12, '2023-04-08', '2023-04-29', 0),
+(39, 1, 5, 14, '2023-05-30', '2023-07-01', 0),
+(40, 2, 6, 13, '2023-05-05', '2023-06-02', 0),
+(41, 1, 12, 14, '2023-05-17', '2023-06-02', 0),
+(42, 3, 6, 12, '2023-05-03', '2023-05-18', 0),
+(43, 1, 12, 13, '2023-05-31', '2023-06-01', 0),
+(44, 3, 12, 13, '2023-05-02', '2023-05-25', 0),
+(45, 3, 12, 13, '2023-05-02', '2023-05-25', 0),
+(46, 3, 12, 13, '2023-05-02', '2023-05-25', 0),
+(47, 2, 2, 12, '2023-05-03', '2023-06-01', 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `personne`
+-- Table structure for table `personne`
 --
 
 CREATE TABLE `personne` (
@@ -292,18 +313,18 @@ CREATE TABLE `personne` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `personne`
+-- Dumping data for table `personne`
 --
 
 INSERT INTO `personne` (`idPersonne`, `nom`, `prenom`, `dateNaissance`, `mail`, `telephone`, `photo`, `niveauGalop`, `numeroLicence`, `rue`, `complementAdresse`, `codePostal`, `ville`, `ID_Responsable`, `actif`, `mdp`, `admin`) VALUES
-(1101, 'Samys', 'Scooby', '1998-01-08', 'user', '0663727273', '641f42d57fac02.18828704.png', 3, 'AAADE335', NULL, NULL, NULL, NULL, NULL, 1, 'user', 0),
-(1103, 'Hochard', 'Lucas', '1993-02-26', 'lucas@gmail.com', '0637727217', '642e8c8c421240.53918184.png', 4, 'ASEDI321', NULL, NULL, NULL, NULL, NULL, 1, 'user', 0),
+(1101, 'Samys', 'Scooby', '1998-01-08', 'user', '0663727273', '641f42d57fac02.18828704.png', 3, 'AAADE335', NULL, NULL, NULL, NULL, NULL, 1, 'a', 0),
+(1103, 'Hochard', 'Lucas', '1993-02-26', 'user2', '0637727217', '642e8c8c421240.53918184.png', 4, 'ASEDI321', NULL, NULL, NULL, NULL, NULL, 1, 'a', 0),
 (1104, 'Diazz', 'Poxy', '2023-03-12', 'admin', '0637288212', '6421b5ee43eb13.32421152.png', 2, 'AAADE335', NULL, NULL, NULL, NULL, NULL, 1, 'admin', 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `robe`
+-- Table structure for table `robe`
 --
 
 CREATE TABLE `robe` (
@@ -313,7 +334,7 @@ CREATE TABLE `robe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `robe`
+-- Dumping data for table `robe`
 --
 
 INSERT INTO `robe` (`ID_Robe`, `libelleRobe`, `actif`) VALUES
@@ -333,7 +354,7 @@ INSERT INTO `robe` (`ID_Robe`, `libelleRobe`, `actif`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `signe`
+-- Table structure for table `signe`
 --
 
 CREATE TABLE `signe` (
@@ -342,26 +363,18 @@ CREATE TABLE `signe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `signe`
+-- Dumping data for table `signe`
 --
 
 INSERT INTO `signe` (`ID_Pension`, `ID_Personne`) VALUES
-(28, 1076),
-(29, 1072),
-(30, 1078),
-(31, 1097),
-(32, 1101),
-(33, 1101),
-(34, 1101),
-(35, 1103),
-(36, 1101),
-(37, 1104),
-(38, 1101);
+(42, 1104),
+(46, 1104),
+(47, 1101);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tarif`
+-- Table structure for table `tarif`
 --
 
 CREATE TABLE `tarif` (
@@ -372,23 +385,24 @@ CREATE TABLE `tarif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `tarif`
+-- Dumping data for table `tarif`
 --
 
 INSERT INTO `tarif` (`ID_Tarif`, `libelleTarif`, `prixMois`, `actif`) VALUES
-(2, 'Classique', 20, 1),
+(2, 'Classiques', 2021, 1),
 (5, 'Classique +', 49, 1),
 (6, 'VIP +', 70, 1),
 (7, 'Ultimate +', 222, 1),
 (8, 'Ultra Premium', 400, 0),
 (9, 'Eco +', NULL, 0),
 (10, '5', NULL, 0),
-(11, 'Eco +', 5, 0);
+(11, 'Eco +', 5, 0),
+(12, 'test', 112, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `typepension`
+-- Table structure for table `typepension`
 --
 
 CREATE TABLE `typepension` (
@@ -398,7 +412,7 @@ CREATE TABLE `typepension` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `typepension`
+-- Dumping data for table `typepension`
 --
 
 INSERT INTO `typepension` (`ID_TP`, `libelle_TP`, `actif`) VALUES
@@ -408,45 +422,47 @@ INSERT INTO `typepension` (`ID_TP`, `libelle_TP`, `actif`) VALUES
 (4, 'Croissant', 0);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `cheval`
+-- Indexes for table `cheval`
 --
 ALTER TABLE `cheval`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ID_Robe` (`idRobe`);
 
 --
--- Index pour la table `contact`
+-- Indexes for table `contact`
 --
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `events`
+-- Indexes for table `events`
 --
 ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_recurrence` (`idRecurrence`);
 
 --
--- Index pour la table `inscription`
+-- Indexes for table `inscription`
 --
 ALTER TABLE `inscription`
   ADD PRIMARY KEY (`ID_Inscription`),
   ADD KEY `ID_Personne` (`ID_Personne`);
 
 --
--- Index pour la table `inscription_cours`
+-- Indexes for table `inscription_cours`
 --
 ALTER TABLE `inscription_cours`
   ADD PRIMARY KEY (`idP`,`idC`),
   ADD KEY `id_cours` (`idC`),
-  ADD KEY `id_personne` (`idP`,`idC`);
+  ADD KEY `id_personne` (`idP`,`idC`),
+  ADD KEY `idRecurrence` (`idRecurrence`);
 
 --
--- Index pour la table `pension`
+-- Indexes for table `pension`
 --
 ALTER TABLE `pension`
   ADD PRIMARY KEY (`ID_Pension`),
@@ -455,19 +471,19 @@ ALTER TABLE `pension`
   ADD KEY `ID_Tarif` (`ID_Tarif`,`ID_Cheval`);
 
 --
--- Index pour la table `personne`
+-- Indexes for table `personne`
 --
 ALTER TABLE `personne`
   ADD PRIMARY KEY (`idPersonne`);
 
 --
--- Index pour la table `robe`
+-- Indexes for table `robe`
 --
 ALTER TABLE `robe`
   ADD PRIMARY KEY (`ID_Robe`);
 
 --
--- Index pour la table `signe`
+-- Indexes for table `signe`
 --
 ALTER TABLE `signe`
   ADD PRIMARY KEY (`ID_Pension`,`ID_Personne`),
@@ -475,100 +491,101 @@ ALTER TABLE `signe`
   ADD KEY `ID_Personne` (`ID_Personne`);
 
 --
--- Index pour la table `tarif`
+-- Indexes for table `tarif`
 --
 ALTER TABLE `tarif`
   ADD PRIMARY KEY (`ID_Tarif`);
 
 --
--- Index pour la table `typepension`
+-- Indexes for table `typepension`
 --
 ALTER TABLE `typepension`
   ADD PRIMARY KEY (`ID_TP`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `cheval`
+-- AUTO_INCREMENT for table `cheval`
 --
 ALTER TABLE `cheval`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT pour la table `contact`
+-- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT pour la table `events`
+-- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=480;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=674;
 
 --
--- AUTO_INCREMENT pour la table `inscription`
+-- AUTO_INCREMENT for table `inscription`
 --
 ALTER TABLE `inscription`
-  MODIFY `ID_Inscription` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Inscription` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT pour la table `pension`
+-- AUTO_INCREMENT for table `pension`
 --
 ALTER TABLE `pension`
-  MODIFY `ID_Pension` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `ID_Pension` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT pour la table `personne`
+-- AUTO_INCREMENT for table `personne`
 --
 ALTER TABLE `personne`
   MODIFY `idPersonne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1105;
 
 --
--- AUTO_INCREMENT pour la table `robe`
+-- AUTO_INCREMENT for table `robe`
 --
 ALTER TABLE `robe`
   MODIFY `ID_Robe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pour la table `tarif`
+-- AUTO_INCREMENT for table `tarif`
 --
 ALTER TABLE `tarif`
-  MODIFY `ID_Tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_Tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pour la table `typepension`
+-- AUTO_INCREMENT for table `typepension`
 --
 ALTER TABLE `typepension`
   MODIFY `ID_TP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `cheval`
+-- Constraints for table `cheval`
 --
 ALTER TABLE `cheval`
   ADD CONSTRAINT `cheval_ibfk_1` FOREIGN KEY (`idRobe`) REFERENCES `robe` (`ID_Robe`);
 
 --
--- Contraintes pour la table `inscription`
+-- Constraints for table `inscription`
 --
 ALTER TABLE `inscription`
   ADD CONSTRAINT `inscription_ibfk_1` FOREIGN KEY (`ID_Personne`) REFERENCES `personne` (`idPersonne`);
 
 --
--- Contraintes pour la table `inscription_cours`
+-- Constraints for table `inscription_cours`
 --
 ALTER TABLE `inscription_cours`
   ADD CONSTRAINT `inscription_cours_ibfk_1` FOREIGN KEY (`idC`) REFERENCES `events` (`id`),
-  ADD CONSTRAINT `inscription_cours_ibfk_2` FOREIGN KEY (`idP`) REFERENCES `personne` (`idPersonne`);
+  ADD CONSTRAINT `inscription_cours_ibfk_2` FOREIGN KEY (`idP`) REFERENCES `personne` (`idPersonne`),
+  ADD CONSTRAINT `inscription_cours_ibfk_3` FOREIGN KEY (`idRecurrence`) REFERENCES `events` (`idRecurrence`);
 
 --
--- Contraintes pour la table `pension`
+-- Constraints for table `pension`
 --
 ALTER TABLE `pension`
   ADD CONSTRAINT `pension_ibfk_1` FOREIGN KEY (`ID_Cheval`) REFERENCES `cheval` (`id`),
@@ -576,7 +593,7 @@ ALTER TABLE `pension`
   ADD CONSTRAINT `pension_ibfk_3` FOREIGN KEY (`ID_TP`) REFERENCES `typepension` (`ID_TP`);
 
 --
--- Contraintes pour la table `signe`
+-- Constraints for table `signe`
 --
 ALTER TABLE `signe`
   ADD CONSTRAINT `signe_ibfk_1` FOREIGN KEY (`ID_Pension`) REFERENCES `pension` (`ID_Pension`),
